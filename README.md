@@ -19,4 +19,9 @@ We are on the process of creating a dataset. The dataset will be analyzed on the
  
 - Sketch of what the final project might look like, noting any interactivity.
 
+First graph: Scrollytelling
+Second graph: Mapping (dots representing each case increase with time)
+Third graph: Timeline,  anti-sexual harassment law in china contrasting with the cases and incidents on the other side
+
+
 
