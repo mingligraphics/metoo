@@ -7,10 +7,10 @@ Soma's Final Project -- Me too in China
 - Who are in the group?
   Ming Li, Yinan and Arun
  
-- Where your data is coming from
+- Where is your data coming from?
   Our dataset comes from a collection of thousands of social media accounts and news articles that are published before April 2019 about #Metoo cases in China. These articles are both in Chinese and English languages. The dataset will be created manually by a thorough reading of all the texts. Altogether about 60 individuals who have been charged of rape/sexual harassment. 
  
-- Your current status in terms of data acquisition/analysis/visualization
+- Your current status in terms of data acquisition/analysis/visualization?
   We are on the process of creating a dataset. The dataset will be analyzed on the basis of number of cases by year and month since 2018. We have roughly brainstormed four graphics for our project.
  
 - Sketch of what the final project might look like, noting any interactivity.
