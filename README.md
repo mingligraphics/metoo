@@ -1,5 +1,5 @@
 # metoo
-### Soma's Final Project -- #MeToo in China
+#MeToo in China
 
 
 Our project is about #MeToo cases in China. The #MeToo movement in China cases took its peak in 2018 after nearly 60 rape/sexual assult cases reported in China. However, the movement has come to a cease for various reasons.
