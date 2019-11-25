@@ -96,8 +96,8 @@ function ready(datapoints) {
     .append('image')
     .attr('x', 3)
     .attr('y', 3)
-    .attr('width', 50)
-    .attr('height', 50)
+    .attr('width', 56)
+    .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/5.png'))
     .attr('class', 'image5')
 
@@ -519,8 +519,8 @@ function ready(datapoints) {
     .append('image')
     .attr('x', 3)
     .attr('y', 3)
-    .attr('width', 52)
-    .attr('height', 52)
+    .attr('width', 56)
+    .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/52.png'))
     .attr('class', 'image52')
 
