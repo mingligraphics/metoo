@@ -26,6 +26,11 @@ img {
     color: black;
 }
 
+.grey-theme {
+    background-color: rgb(216, 212, 212);
+    color: black;
+}
+
 #loading_image{
     width: 100%;
     height: 100%;
