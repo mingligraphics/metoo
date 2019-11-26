@@ -27,9 +27,22 @@ img {
 }
 
 .grey-theme {
-    background-color: rgb(216, 212, 212);
+    background-color:rgb(146, 145, 145) ;
     color: black;
 }
+
+
+.image{
+    filter: gray; /* IE6-9 */
+    /* filter: grayscale(1); Microsoft Edge and Firefox 35+ */
+    -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+  }
+
+  .image:hover {
+    -webkit-filter: grayscale(0);
+    filter: none;
+  }
+
 
 #loading_image{
     width: 100%;
@@ -177,8 +190,6 @@ p.chart-label {
     min-width:calc(25% - 15px);
 
 }
-
-
 
 p.chart-source {
     font-size:0.85rem;
