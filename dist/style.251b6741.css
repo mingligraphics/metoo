@@ -151,6 +151,7 @@ p.note {
     width:100%;
     max-width:1200px;
     padding:20px 0px;
+    float: center;
 }
 
 .story-body .chart-section {
@@ -159,7 +160,7 @@ p.note {
 
 
 .chart-row {
-    display:flex;
+    display:flex-start;
     justify-content: space-between;
     margin-top:20px;
 }

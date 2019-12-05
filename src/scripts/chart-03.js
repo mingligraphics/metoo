@@ -1,102 +1,238 @@
 import * as d3 from 'd3'
 
-const margin = { top: 20, left: 20, right: 20, bottom: 20 }
+const margin = {
+  top: 10,
+  right: 100,
+  bottom: 100,
+  left: 100
+}
 
-const height = 600 - margin.top - margin.bottom
 const width = 500 - margin.left - margin.right
+const height = 600 - margin.top - margin.bottom
 
 const svg = d3
-  .select('#chart-03') 
+  .select('#chart-03')
   .append('svg')
   .attr('width', width + margin.left + margin.right)
   .attr('height', height + margin.top + margin.bottom)
   .append('g')
   .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
+  .style('align', 'center')
 
-  // this is the parameter part useful for exploration
+const data = [
+  { col: 0, row: 0 },
+  { col: 0, row: 1 },
+  { col: 0, row: 2 },
+  { col: 0, row: 3 },
+  { col: 0, row: 4 },
+  { col: 0, row: 5 },
+  { col: 0, row: 6 },
+  { col: 0, row: 7 },
+  { col: 0, row: 8 },
+  { col: 0, row: 9 },
+  { col: 0, row: 10 },
+  { col: 0, row: 11 },
+  { col: 0, row: 12 },
+  { col: 0, row: 13 },
+  { col: 0, row: 14 },
+  { col: 1, row: 0 },
+  { col: 1, row: 1 },
+  { col: 1, row: 2 },
+  { col: 1, row: 3 },
+  { col: 1, row: 4 },
+  { col: 1, row: 5 },
+  { col: 1, row: 6 },
+  { col: 1, row: 7 },
+  { col: 1, row: 8 },
+  { col: 1, row: 9 },
+  { col: 1, row: 10 },
+  { col: 1, row: 11 },
+  { col: 1, row: 12 },
+  { col: 1, row: 13 },
+  { col: 1, row: 14 },
+  { col: 2, row: 0 },
+  { col: 2, row: 1 },
+  { col: 2, row: 2 },
+  { col: 2, row: 3 },
+  { col: 2, row: 4 },
+  { col: 2, row: 5 },
+  { col: 2, row: 6 },
+  { col: 2, row: 7 },
+  { col: 2, row: 8 },
+  { col: 2, row: 9 },
+  { col: 2, row: 10 },
+  { col: 2, row: 11 },
+  { col: 2, row: 12 },
+  { col: 2, row: 13 },
+  { col: 2, row: 14 },
+  { col: 3, row: 0 },
+  { col: 3, row: 1 },
+  { col: 3, row: 2 },
+  { col: 3, row: 3 },
+  { col: 3, row: 4 },
+  { col: 3, row: 5 },
+  { col: 3, row: 6 },
+  { col: 3, row: 7 },
+  { col: 3, row: 8 },
+  { col: 3, row: 9 },
+  { col: 3, row: 10 },
+  { col: 3, row: 11 },
+  { col: 3, row: 12 },
+  { col: 3, row: 13 },
+  { col: 3, row: 14 },
+  { col: 4, row: 0 },
+  { col: 4, row: 1 },
+  { col: 4, row: 2 },
+  { col: 4, row: 3 },
+  { col: 4, row: 4 },
+  { col: 4, row: 5 },
+  { col: 4, row: 6 },
+  { col: 4, row: 7 },
+  { col: 4, row: 8 },
+  { col: 4, row: 9 },
+  { col: 4, row: 10 },
+  { col: 4, row: 11 },
+  { col: 4, row: 12 },
+  { col: 4, row: 13 },
+  { col: 4, row: 14 },
+  { col: 5, row: 0 },
+  { col: 5, row: 1 },
+  { col: 5, row: 2 },
+  { col: 5, row: 3 },
+  { col: 5, row: 4 },
+  { col: 5, row: 5 },
+  { col: 5, row: 6 },
+  { col: 5, row: 7 },
+  { col: 5, row: 8 },
+  { col: 5, row: 9 },
+  { col: 5, row: 10 },
+  { col: 5, row: 11 },
+  { col: 5, row: 12 },
+  { col: 5, row: 13 },
+  { col: 5, row: 14 },
+  { col: 6, row: 0 },
+  { col: 6, row: 1 },
+  { col: 6, row: 2 },
+  { col: 6, row: 3 },
+  { col: 6, row: 4 },
+  { col: 6, row: 5 },
+  { col: 6, row: 6 },
+  { col: 6, row: 7 },
+  { col: 6, row: 8 },
+  { col: 6, row: 9 },
+  { col: 6, row: 10 },
+  { col: 6, row: 11 },
+  { col: 6, row: 12 },
+  { col: 6, row: 13 },
+  { col: 6, row: 14 },
+  { col: 7, row: 0 },
+  { col: 7, row: 1 },
+  { col: 7, row: 2 },
+  { col: 7, row: 3 },
+  { col: 7, row: 4 },
+  { col: 7, row: 5 },
+  { col: 7, row: 6 },
+  { col: 7, row: 7 },
+  { col: 7, row: 8 },
+  { col: 7, row: 9 },
+  { col: 7, row: 10 },
+  { col: 7, row: 11 },
+  { col: 7, row: 12 },
+  { col: 7, row: 13 },
+  { col: 7, row: 14 },
+  { col: 8, row: 0 },
+  { col: 8, row: 1 },
+  { col: 8, row: 2 },
+  { col: 8, row: 3 },
+  { col: 8, row: 4 },
+  { col: 8, row: 5 },
+  { col: 8, row: 6 },
+  { col: 8, row: 7 },
+  { col: 8, row: 8 },
+  { col: 8, row: 9 },
+  { col: 8, row: 10 },
+  { col: 8, row: 11 },
+  { col: 8, row: 12 },
+  { col: 8, row: 13 },
+  { col: 8, row: 14 },
+  { col: 9, row: 0 },
+  { col: 9, row: 1 },
+  { col: 9, row: 2 },
+  { col: 9, row: 3 },
+  { col: 9, row: 4 },
+  { col: 9, row: 5 },
+  { col: 9, row: 6 },
+  { col: 9, row: 7 },
+  { col: 9, row: 8 },
+  { col: 9, row: 9 },
+  { col: 9, row: 10 },
+  { col: 9, row: 11 },
+  { col: 9, row: 12 },
+  { col: 9, row: 13 }
+]
+
+const xScale = d3
+  .scaleLinear()
+  .domain([0, 9])
+  .range([0, width])
+
+const yScale = d3
+  .scaleLinear()
+  .domain([0, 14])
+  .range([0, height])
+// this is the parameter part useful for exploration
 // you can play with these numbers
-const numCol = 10
-const numRow = 16
-const pad = 4
 
-// here some pre-backed calculations useful for the next part
-const tot = numCol*numRow
-const _w = width/numCol
-const _h = height/numRow
+console.log(data)
 
-// this portion creates the columns
-const cols = svg.selectAll('g')
-.data(d3.range(numCol))
-.enter()
-.append('g')
-.attr('transform', function(d, i){
-  return 'translate(' + i*_w + ','+(pad/2)*-1+')'
+d3.select('#victim01').on('stepin', function() {
+  console.log('several')
+  svg.select("rect[id='0']").attr('fill', 'red')
 })
 
-// and here the rows, for each column
-var all = cols.selectAll('g')
-.data(d3.range(numRow))
-.enter()
-.append('g')
-.attr('transform', function(d, i){
-  return 'translate('+(pad/2)*-1+',' + i*_h + ')'
+d3.select('#victim02').on('stepin', function() {
+  svg.select("rect[id='13']").attr('fill', 'orange')
 })
 
-// then, for each cell we appends a rect
-all.append('circle')
-.attr('class', 'dot')
-  .attr('cx', _w/2)
-  .attr('cy', _w/4)
-  .attr('r', 10)
+d3.select('#victim03').on('stepin', function() {
+  svg.select("rect[id='26']").attr('fill', 'yellow')
+})
 
-  function render() {
-    // Grabbing the div that our svg is inside of
-    // and asking it wide it is
-    // "hey <svg> that is really a <g>, go through
-    // your parents until you find a div"
-    const svgContainer = svg.node().closest('div')
-    const svgWidth = svgContainer.offsetWidth
-    console.log(svgWidth)
+d3.select('#victim04').on('stepin', function() {
+  svg.select("rect[id='97']").attr('fill', 'green')
+})
 
-    // .node() means "no really give me the HTML element,
-    //    not the weird d3 representation"
-    // .parentNode means "give me the svg that's outside
-    //    of the g," which we can actually change
-    //    the size of with .attr
-    // .closest('svg') means "go through your parents until
-    //   you find an svg, in case we have a g in a g in a g"
-    const actualSvg = d3.select(svg.node().closest('svg'))
-    actualSvg.attr('width', svgWidth)
+d3.select('#victim05').on('stepin', function() {
+  svg.select("rect[id='136']").attr('fill', 'blue')
+})
 
-    // Remember how we do
-    //    var width = 700 - margin.left - margin.right?
-    // this is the same thing, since svgWidth is the FULL
-    // SIZE of the svg, not the drawing area (the g)
-    const newWidth = svgWidth - margin.left - margin.right
-    
-    const new_w = newWidth/numCol
-    console.log('This is', new_w)
-    // Update our axes
-    // First, update the scale
-    // Then, update the axis
+svg
+  .selectAll('rect')
+  .data(data)
+  .enter()
+  .append('rect')
+  .attr('width', 20)
+  .attr('height', 20)
+  .attr('x', d => xScale(d.col))
+  .attr('y', d => yScale(d.row))
+  .attr('fill', 'lightgrey')
+  .attr('id', function(d) {
+    return d.col + d.row * 10
+  })
+// .style('background-image', 'url("../images/women.png“)')
 
-    svg.selectAll('g')
-    .attr('transform', function(d, i){
-      return 'translate(' + i*new_w + ','+(pad/2)*-1+')'
-    })
+// const groups = all._groups
+// const group = groups.keys
+// console.log(groups)
 
-    svg
-      .selectAll('.dot')
-      .attr('cx', new_w/4)
-      .attr('cy', new_w/4)
+// const col = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+// const row = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 
-    console.log('resized to 500')
-  }
-
-  // When the window resizes, run the function
-  // that redraws everything
-  window.addEventListener('resize', render)
-
-  // And now that the page has loaded, let's just try
-  // to do it once before the page has resized
-  render()
+// all
+//   .append('rect')
+//   .attr('x', _w / 2)
+//   .attr('y', _w / 4)
+//   .attr('width', 20)
+//   .attr('height', 20)
+//   .attr('fill', 'grey')
+//
