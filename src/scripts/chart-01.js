@@ -22,6 +22,9 @@ function ready(datapoints) {
       const result = 'group' + d.key
       return result
     })
+    .attr('data-delay', function(d) {
+      return d.key.split('.')[0]
+    })
 
   // in each group add the appropriate number of blocks
   // group.append('text').text(d => d.key)
@@ -55,13 +58,14 @@ function ready(datapoints) {
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/0.png'))
     .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image0')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block1')
@@ -72,13 +76,14 @@ function ready(datapoints) {
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/1.png'))
     .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image1')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block2')
@@ -89,13 +94,14 @@ function ready(datapoints) {
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/2.png'))
     .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image2')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block3')
@@ -106,13 +112,14 @@ function ready(datapoints) {
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/3.png'))
     .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image3')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block4')
@@ -123,13 +130,14 @@ function ready(datapoints) {
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/4.png'))
     .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image4')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block5')
@@ -140,13 +148,14 @@ function ready(datapoints) {
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/5.png'))
     .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image5')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block6')
@@ -156,14 +165,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/6.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image6')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block7')
@@ -173,14 +182,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/7.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image7')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block8')
@@ -190,14 +199,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/8.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image8')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block9')
@@ -207,14 +216,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/9.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image9')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block10')
@@ -224,14 +233,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/10.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image10')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block11')
@@ -241,14 +250,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/11.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image11')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block12')
@@ -258,14 +267,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/12.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image12')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block13')
@@ -275,14 +284,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/13.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image13')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block14')
@@ -292,14 +301,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/14.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image14')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block15')
@@ -309,14 +318,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/15.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image15')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block16')
@@ -326,14 +335,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/16.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image16')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block17')
@@ -343,14 +352,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/17.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image17')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block18')
@@ -360,14 +369,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/18.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image18')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block19')
@@ -377,14 +386,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/19.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image19')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block20')
@@ -394,14 +403,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/20.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image20')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block21')
@@ -411,14 +420,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/21.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image21')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block22')
@@ -428,14 +437,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/22.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image22')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block23')
@@ -445,14 +454,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/23.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image23')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block24')
@@ -462,14 +471,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/24.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image24')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block25')
@@ -479,14 +488,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/25.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image25')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block26')
@@ -496,14 +505,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/26.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image26')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block27')
@@ -513,14 +522,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/27.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image27')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block28')
@@ -530,14 +539,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/28.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image28')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block29')
@@ -547,14 +556,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/29.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image29')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block30')
@@ -564,14 +573,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/30.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image30')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null) 
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)")
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block31')
@@ -581,14 +590,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/31.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image31')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block32')
@@ -598,14 +607,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/32.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image32')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block33')
@@ -615,14 +624,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/33.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image33')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block34')
@@ -632,14 +641,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/34.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image34')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block35')
@@ -649,14 +658,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/35.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image35')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block36')
@@ -666,14 +675,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/36.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image36')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block37')
@@ -683,14 +692,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/37.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image37')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block38')
@@ -700,14 +709,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/38.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image38')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block39')
@@ -717,14 +726,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/39.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image39')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block40')
@@ -734,14 +743,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/40.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image40')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block41')
@@ -751,14 +760,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/41.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image41')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block42')
@@ -768,14 +777,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/42.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image42')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block43')
@@ -785,14 +794,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/43.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image43')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block44')
@@ -802,14 +811,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/44.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image44')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block45')
@@ -819,14 +828,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/45.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image45')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block46')
@@ -836,14 +845,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/46.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image46')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block47')
@@ -853,14 +862,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/47.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image47')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block48')
@@ -870,14 +879,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/48.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image48')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block49')
@@ -887,14 +896,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/49.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image49')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block50')
@@ -904,14 +913,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/50.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image50')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block51')
@@ -921,14 +930,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/51.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image51')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block52')
@@ -938,14 +947,14 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/52.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image52')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
   d3.select('#block53')
@@ -955,23 +964,67 @@ function ready(datapoints) {
     .attr('width', 56)
     .attr('height', 56)
     .attr('xlink:href', require('../images/P-images/53.png'))
-    .attr('class', 'image')
-    .style("filter", "url(#desaturate)")
-    .on("mouseover",function(d){
+    .attr('id', 'image53')
+    .style('filter', 'url(#desaturate)')
+    .on('mouseover', function(d) {
       console.log('My mouse went over the datapoint', d)
-      d3.select(this).style("filter", null);     
+      d3.select(this).style('filter', null)
     })
-    .on("mouseout",function(d){     
-      d3.select(this).style("filter", "url(#desaturate)");
+    .on('mouseout', function(d) {
+      d3.select(this).style('filter', 'url(#desaturate)')
     })
 
+  // * Transition
 
+  //
 
-   block.append('filter')
-  .attr('id','desaturate')
-  .append('feColorMatrix')
-  .attr('type','matrix')
-  .attr('values',"0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0");
+  d3.selectAll('image')
+    .style('opacity', 0)
+    .transition()
+    .duration(500)
+    .delay(function(d) {
+      const delay = this.parentNode.parentNode.getAttribute('data-delay')
+      return delay * 250
+    })
+    .style('opacity', 1)
 
+  console.log('This step')
 
+  /* 
+
+Scrolltelling
+
+*/
+
+  d3.select('#p1').on('stepin', function() {
+    console.log('This is working.')
+    d3.select('#image0').style('filter', 'none')
+  })
+
+  d3.select('#p2').on('stepin', function() {
+    console.log('This is working.')
+    d3.select('#image1').style('filter', 'none')
+  })
+
+  d3.select('#p3').on('stepin', function() {
+    d3.select('#image2').style('filter', 'none')
+  })
+
+  d3.select('#p4').on('stepin', function() {
+    d3.select('#image3').style('filter', 'none')
+  })
+
+  d3.select('#p5').on('stepin', function() {
+    d3.select('#image4').style('filter', 'none')
+  })
+
+  block
+    .append('filter')
+    .attr('id', 'desaturate')
+    .append('feColorMatrix')
+    .attr('type', 'matrix')
+    .attr(
+      'values',
+      '0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'
+    )
 }
