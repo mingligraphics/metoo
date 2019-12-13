@@ -219,6 +219,7 @@ svg
   .attr('id', function(d) {
     return d.col + d.row * 10
   })
+// .style('background-image', 'url("../images/women.png“)')
 
 // const groups = all._groups
 // const group = groups.keys

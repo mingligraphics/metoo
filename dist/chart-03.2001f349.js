@@ -29003,7 +29003,8 @@ svg.selectAll('rect').data(data).enter().append('rect').attr('width', 20).attr('
   return yScale(d.row);
 }).attr('fill', 'lightgrey').attr('id', function (d) {
   return d.col + d.row * 10;
-}); // const groups = all._groups
+}); // .style('background-image', 'url("../images/women.png“)')
+// const groups = all._groups
 // const group = groups.keys
 // console.log(groups)
 // const col = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
