@@ -66,6 +66,18 @@ img {
   margin-top: 0;
 }
 
+
+.middle{
+  width: 100%;
+  height: 100vh;
+  background: black;
+  background-size: cover;
+}
+
+.middle > * {
+  margin-top: 0;
+}
+
 .header {
     padding-top:20px;
     padding-bottom:20px;
@@ -73,7 +85,7 @@ img {
 
 .story-body, .header, .chart-section, .footer {
     margin:auto;
-    max-width: 700px;
+    max-width: 500px;
 }
 
 .footer {
@@ -236,13 +248,13 @@ p.chart-source {
   .group {
     display: flex;
     flex-direction: row;
-    margin: 3.5px;
+    margin: 3px;
   }
   
   .block {
     width: 62px;
     height: 62px;
-    margin: 5px;
+    margin: 10px;
     background-color: none;
   }
 
@@ -306,11 +318,11 @@ svg {
   
   /* Scrollytelling sections can be wider than the normal 700px width */
 .scrollytelling.story-body {
-    max-width: 60%;
+    max-width: 100%;
   }
   
   .scrollytelling {
-    display: flex;
+    display:flex;
     flex-wrap: wrap;
   }
   
@@ -323,19 +335,19 @@ svg {
   /* ...except the .steps and .chart! They'll share a row, sometimes */
   .scrollytelling > .steps,
   .scrollytelling > .preptrator {
-    flex-basis: 100%;
+    flex-basis: 80%;
     flex-shrink: 0;
     flex-grow: 1;
   }
   
   /* The bigger 'flex-grow' the more space it takes up */
   .scrollytelling > .preptrator {
-    flex-grow: 10;
+    flex-grow: 1;
     /* overflow: hidden; */
   }
   
   .scrollytelling .preptrator {
-    margin-right: 5px;
+    margin-right: 10px;
     position: sticky;
     top: 0;
     z-index: 0;
@@ -354,10 +366,10 @@ svg {
   }
   
   .scrollytelling .step {
-    max-width: 30rem;
+    max-width: 60rem;
     margin: 0 auto;
-    margin-bottom: 80vh;
-    padding: 30px;
+    margin-bottom: 100vh;
+    padding: 50px;
     background-color:black;
     color:lightgray;
     pointer-events: auto;
