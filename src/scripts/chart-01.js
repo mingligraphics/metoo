@@ -48,7 +48,7 @@ function ready(datapoints) {
     .attr('cy', 31)
     .attr('r', 30)
     .attr('stroke', 'none')
-    .attr('stroke-width', 2)
+    .attr('stroke-width', 4)
     .attr('fill', 'none')
     .attr('id', function(d) {
       const result = 'circle' + d.preptrator
@@ -73,11 +73,7 @@ function ready(datapoints) {
       d3.select(this).style('filter', 'url(#desaturate)')
     })
     
-  d3.select('#block0')
-    .append('text')
-    .attr("dy", 35)
-    .attr('dx',-50)
-    .text('January')
+
 
   d3.select('#block1')
     .append('image')
@@ -1009,29 +1005,29 @@ Scrolltelling
 
   d3.select('#p1').on('stepin', function() {
     console.log('This is working.')
-    d3.select('#circle0').attr('stroke', '#de2d26')
+    d3.selectAll('#circle0,#image0').attr('stroke', '#b2182b').style('filter', 'none')
   })
 
   d3.select('#p2').on('stepin', function() {
-    d3.select('#circle6').attr('stroke', '#de2d26')
+    d3.selectAll('#circle6, #image6').attr('stroke', '#de2d26').style('filter', 'none')
   })
 
   d3.select('#p3').on('stepin', function() {
     // d3.select('#image2').style('filter', 'none')
-    d3.select('#circle17').attr('stroke', '#de2d26')
+    d3.selectAll('#circle17, #image17').attr('stroke', '#de2d26').style('filter', 'none')
   })
 
   d3.select('#p4').on('stepin', function() {
     // d3.select('#image3').style('filter', 'none')
-    d3.select('#circle35').attr('stroke', '#de2d26')
+    d3.selectAll('#circle35, #image35').attr('stroke', '#de2d26').style('filter', 'none')
   })
 
   d3.select('#p5').on('stepin', function() {
-    d3.select('#circle47').attr('stroke', '#de2d26')
+    d3.selectAll('#circle47, #image47').attr('stroke', '#de2d26').style('filter', 'none')
   })
 
   d3.select('#p6').on('stepin', function() {
-    d3.select('#circle51').attr('stroke', '#de2d26')
+    d3.selectAll('#circle51, #image51').attr('stroke', '#de2d26').style('filter', 'none')
   })
 
   block

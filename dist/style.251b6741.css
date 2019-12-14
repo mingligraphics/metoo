@@ -248,7 +248,7 @@ p.chart-source {
   .group {
     display: flex;
     flex-direction: row;
-    margin: 3px;
+    margin: 3.5px;
   }
   
   .block {
@@ -370,8 +370,8 @@ svg {
     margin: 0 auto;
     margin-bottom: 100vh;
     padding: 50px;
-    background-color:black;
-    color:lightgray;
+    background-color: black;
+    color:white;
     pointer-events: auto;
   }
   

@@ -28652,7 +28652,7 @@ function ready(datapoints) {
     var result = 'block' + d.preptrator;
     return result;
   });
-  block.append('circle').attr('cx', 31).attr('cy', 31).attr('r', 30).attr('stroke', 'none').attr('stroke-width', 2).attr('fill', 'none').attr('id', function (d) {
+  block.append('circle').attr('cx', 31).attr('cy', 31).attr('r', 30).attr('stroke', 'none').attr('stroke-width', 4).attr('fill', 'none').attr('id', function (d) {
     var result = 'circle' + d.preptrator;
     return result;
   });
@@ -28662,7 +28662,6 @@ function ready(datapoints) {
   }).on('mouseout', function (d) {
     d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block0').append('text').attr("dy", 35).attr('dx', -50).text('January');
   d3.select('#block1').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/1.png')).attr('class', 'image').attr('id', 'image1').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
     d3.select(this).style('filter', null);
@@ -28994,24 +28993,24 @@ function ready(datapoints) {
 
   d3.select('#p1').on('stepin', function () {
     console.log('This is working.');
-    d3.select('#circle0').attr('stroke', '#de2d26');
+    d3.selectAll('#circle0,#image0').attr('stroke', '#b2182b').style('filter', 'none');
   });
   d3.select('#p2').on('stepin', function () {
-    d3.select('#circle6').attr('stroke', '#de2d26');
+    d3.selectAll('#circle6, #image6').attr('stroke', '#de2d26').style('filter', 'none');
   });
   d3.select('#p3').on('stepin', function () {
     // d3.select('#image2').style('filter', 'none')
-    d3.select('#circle17').attr('stroke', '#de2d26');
+    d3.selectAll('#circle17, #image17').attr('stroke', '#de2d26').style('filter', 'none');
   });
   d3.select('#p4').on('stepin', function () {
     // d3.select('#image3').style('filter', 'none')
-    d3.select('#circle35').attr('stroke', '#de2d26');
+    d3.selectAll('#circle35, #image35').attr('stroke', '#de2d26').style('filter', 'none');
   });
   d3.select('#p5').on('stepin', function () {
-    d3.select('#circle47').attr('stroke', '#de2d26');
+    d3.selectAll('#circle47, #image47').attr('stroke', '#de2d26').style('filter', 'none');
   });
   d3.select('#p6').on('stepin', function () {
-    d3.select('#circle51').attr('stroke', '#de2d26');
+    d3.selectAll('#circle51, #image51').attr('stroke', '#de2d26').style('filter', 'none');
   });
   block.append('filter').attr('id', 'desaturate').append('feColorMatrix').attr('type', 'matrix').attr('values', '0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0');
 }
