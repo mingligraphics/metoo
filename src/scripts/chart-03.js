@@ -209,19 +209,19 @@ d3.select('#victim03').on('stepin', function() {
 })
 
 d3.select('#victim04').on('stepin', function() {
-  svg.selectAll("rect[id='110'], rect[id='111'], rect[id='112'], rect[id='113'], rect[id='114'], rect[id='115'], rect[id='116'], rect[id='117'], rect[id='118'],rect[id='119'], rect[id='120'], rect[id='121'], rect[id='122'], rect[id='123'], rect[id='124'], rect[id='125'], rect[id='126'], rect[id='127'], rect[id='128'], rect[id='129'], rect[id='130'], rect[id='131'], rect[id='132']").attr('fill', '#98B49C')
+  svg.selectAll("rect[id='110'], rect[id='111'], rect[id='112'], rect[id='113'], rect[id='114'], rect[id='115'], rect[id='116'], rect[id='117'], rect[id='118'],rect[id='119'], rect[id='120'], rect[id='121'], rect[id='122'], rect[id='123'], rect[id='124'], rect[id='125'], rect[id='126'], rect[id='127'], rect[id='128'], rect[id='129'], rect[id='130'], rect[id='131'], rect[id='132']").attr('fill', '#B4C8B7')
   svg.select("rect[id='120']").attr('fill', '#DBA0AF')
 
 })
 
 d3.select('#victim05').on('stepin', function() {
-  svg.selectAll("rect[id='133'], rect[id='134'], rect[id='135'], rect[id='136'], rect[id='137'], rect[id='138'], rect[id='139'], rect[id='140'], rect[id='141'], rect[id='142'], rect[id='143'], rect[id='144'], rect[id='145'], rect[id='146'], rect[id='147'], rect[id='148']").attr('fill', '#427045')
+  svg.selectAll("rect[id='133'], rect[id='134'], rect[id='135'], rect[id='136'], rect[id='137'], rect[id='138'], rect[id='139'], rect[id='140'], rect[id='141'], rect[id='142'], rect[id='143'], rect[id='144'], rect[id='145'], rect[id='146'], rect[id='147'], rect[id='148']").attr('fill', '#648A66')
   svg.select("rect[id='145']").attr('fill', '#DBA0AF')
 
 })
 
 d3.select('#victim06').on('stepin', function() {
-  svg.selectAll("rect[id='149'], rect[id='150'], rect[id='151']").attr('fill', '#254341')
+  svg.selectAll("rect[id='149'], rect[id='150'], rect[id='151']").attr('fill', '#18291A')
   svg.select("rect[id='150']").attr('fill', '#DBA0AF')
 })
 
