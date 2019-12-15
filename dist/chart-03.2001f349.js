@@ -5741,7 +5741,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = _default;
 
-var _schedule = require("./transition/schedule");
+var _schedule = require("./transition/schedule.js");
 
 function _default(node, name) {
   var schedules = node.__transition,
@@ -5767,7 +5767,7 @@ function _default(node, name) {
 
   if (empty) delete node.__transition;
 }
-},{"./transition/schedule":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/selection/interrupt.js":[function(require,module,exports) {
+},{"./transition/schedule.js":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/selection/interrupt.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5775,7 +5775,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = _default;
 
-var _interrupt = _interopRequireDefault(require("../interrupt"));
+var _interrupt = _interopRequireDefault(require("../interrupt.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -5784,7 +5784,7 @@ function _default(name) {
     (0, _interrupt.default)(this, name);
   });
 }
-},{"../interrupt":"../node_modules/d3-transition/src/interrupt.js"}],"../node_modules/d3-transition/src/transition/tween.js":[function(require,module,exports) {
+},{"../interrupt.js":"../node_modules/d3-transition/src/interrupt.js"}],"../node_modules/d3-transition/src/transition/tween.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5793,7 +5793,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = _default;
 exports.tweenValue = tweenValue;
 
-var _schedule = require("./schedule");
+var _schedule = require("./schedule.js");
 
 function tweenRemove(id, name) {
   var tween0, tween1;
@@ -5877,7 +5877,7 @@ function tweenValue(transition, name, value) {
     return (0, _schedule.get)(node, id).value[name];
   };
 }
-},{"./schedule":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/interpolate.js":[function(require,module,exports) {
+},{"./schedule.js":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/interpolate.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5905,9 +5905,9 @@ var _d3Interpolate = require("d3-interpolate");
 
 var _d3Selection = require("d3-selection");
 
-var _tween = require("./tween");
+var _tween = require("./tween.js");
 
-var _interpolate = _interopRequireDefault(require("./interpolate"));
+var _interpolate = _interopRequireDefault(require("./interpolate.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -5974,7 +5974,7 @@ function _default(name, value) {
       i = fullname === "transform" ? _d3Interpolate.interpolateTransformSvg : _interpolate.default;
   return this.attrTween(name, typeof value === "function" ? (fullname.local ? attrFunctionNS : attrFunction)(fullname, i, (0, _tween.tweenValue)(this, "attr." + name, value)) : value == null ? (fullname.local ? attrRemoveNS : attrRemove)(fullname) : (fullname.local ? attrConstantNS : attrConstant)(fullname, i, value));
 }
-},{"d3-interpolate":"../node_modules/d3-interpolate/src/index.js","d3-selection":"../node_modules/d3-selection/src/index.js","./tween":"../node_modules/d3-transition/src/transition/tween.js","./interpolate":"../node_modules/d3-transition/src/transition/interpolate.js"}],"../node_modules/d3-transition/src/transition/attrTween.js":[function(require,module,exports) {
+},{"d3-interpolate":"../node_modules/d3-interpolate/src/index.js","d3-selection":"../node_modules/d3-selection/src/index.js","./tween.js":"../node_modules/d3-transition/src/transition/tween.js","./interpolate.js":"../node_modules/d3-transition/src/transition/interpolate.js"}],"../node_modules/d3-transition/src/transition/attrTween.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5986,13 +5986,13 @@ var _d3Selection = require("d3-selection");
 
 function attrInterpolate(name, i) {
   return function (t) {
-    this.setAttribute(name, i(t));
+    this.setAttribute(name, i.call(this, t));
   };
 }
 
 function attrInterpolateNS(fullname, i) {
   return function (t) {
-    this.setAttributeNS(fullname.space, fullname.local, i(t));
+    this.setAttributeNS(fullname.space, fullname.local, i.call(this, t));
   };
 }
 
@@ -6038,7 +6038,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = _default;
 
-var _schedule = require("./schedule");
+var _schedule = require("./schedule.js");
 
 function delayFunction(id, value) {
   return function () {
@@ -6056,7 +6056,7 @@ function _default(value) {
   var id = this._id;
   return arguments.length ? this.each((typeof value === "function" ? delayFunction : delayConstant)(id, value)) : (0, _schedule.get)(this.node(), id).delay;
 }
-},{"./schedule":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/duration.js":[function(require,module,exports) {
+},{"./schedule.js":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/duration.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -6064,7 +6064,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = _default;
 
-var _schedule = require("./schedule");
+var _schedule = require("./schedule.js");
 
 function durationFunction(id, value) {
   return function () {
@@ -6082,7 +6082,7 @@ function _default(value) {
   var id = this._id;
   return arguments.length ? this.each((typeof value === "function" ? durationFunction : durationConstant)(id, value)) : (0, _schedule.get)(this.node(), id).duration;
 }
-},{"./schedule":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/ease.js":[function(require,module,exports) {
+},{"./schedule.js":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/ease.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -6090,7 +6090,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = _default;
 
-var _schedule = require("./schedule");
+var _schedule = require("./schedule.js");
 
 function easeConstant(id, value) {
   if (typeof value !== "function") throw new Error();
@@ -6103,7 +6103,7 @@ function _default(value) {
   var id = this._id;
   return arguments.length ? this.each(easeConstant(id, value)) : (0, _schedule.get)(this.node(), id).ease;
 }
-},{"./schedule":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/filter.js":[function(require,module,exports) {
+},{"./schedule.js":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/filter.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -6113,7 +6113,7 @@ exports.default = _default;
 
 var _d3Selection = require("d3-selection");
 
-var _index = require("./index");
+var _index = require("./index.js");
 
 function _default(match) {
   if (typeof match !== "function") match = (0, _d3Selection.matcher)(match);
@@ -6128,7 +6128,7 @@ function _default(match) {
 
   return new _index.Transition(subgroups, this._parents, this._name, this._id);
 }
-},{"d3-selection":"../node_modules/d3-selection/src/index.js","./index":"../node_modules/d3-transition/src/transition/index.js"}],"../node_modules/d3-transition/src/transition/merge.js":[function(require,module,exports) {
+},{"d3-selection":"../node_modules/d3-selection/src/index.js","./index.js":"../node_modules/d3-transition/src/transition/index.js"}],"../node_modules/d3-transition/src/transition/merge.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -6136,7 +6136,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = _default;
 
-var _index = require("./index");
+var _index = require("./index.js");
 
 function _default(transition) {
   if (transition._id !== this._id) throw new Error();
@@ -6155,7 +6155,7 @@ function _default(transition) {
 
   return new _index.Transition(merges, this._parents, this._name, this._id);
 }
-},{"./index":"../node_modules/d3-transition/src/transition/index.js"}],"../node_modules/d3-transition/src/transition/on.js":[function(require,module,exports) {
+},{"./index.js":"../node_modules/d3-transition/src/transition/index.js"}],"../node_modules/d3-transition/src/transition/on.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -6163,7 +6163,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = _default;
 
-var _schedule = require("./schedule");
+var _schedule = require("./schedule.js");
 
 function start(name) {
   return (name + "").trim().split(/^|\s+/).every(function (t) {
@@ -6192,7 +6192,7 @@ function _default(name, listener) {
   var id = this._id;
   return arguments.length < 2 ? (0, _schedule.get)(this.node(), id).on.on(name) : this.each(onFunction(id, name, listener));
 }
-},{"./schedule":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/remove.js":[function(require,module,exports) {
+},{"./schedule.js":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/remove.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -6223,9 +6223,9 @@ exports.default = _default;
 
 var _d3Selection = require("d3-selection");
 
-var _index = require("./index");
+var _index = require("./index.js");
 
-var _schedule = _interopRequireWildcard(require("./schedule"));
+var _schedule = _interopRequireWildcard(require("./schedule.js"));
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
@@ -6248,7 +6248,7 @@ function _default(select) {
 
   return new _index.Transition(subgroups, this._parents, name, id);
 }
-},{"d3-selection":"../node_modules/d3-selection/src/index.js","./index":"../node_modules/d3-transition/src/transition/index.js","./schedule":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/selectAll.js":[function(require,module,exports) {
+},{"d3-selection":"../node_modules/d3-selection/src/index.js","./index.js":"../node_modules/d3-transition/src/transition/index.js","./schedule.js":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/selectAll.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -6258,9 +6258,9 @@ exports.default = _default;
 
 var _d3Selection = require("d3-selection");
 
-var _index = require("./index");
+var _index = require("./index.js");
 
-var _schedule = _interopRequireWildcard(require("./schedule"));
+var _schedule = _interopRequireWildcard(require("./schedule.js"));
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
@@ -6288,7 +6288,7 @@ function _default(select) {
 
   return new _index.Transition(subgroups, parents, name, id);
 }
-},{"d3-selection":"../node_modules/d3-selection/src/index.js","./index":"../node_modules/d3-transition/src/transition/index.js","./schedule":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/selection.js":[function(require,module,exports) {
+},{"d3-selection":"../node_modules/d3-selection/src/index.js","./index.js":"../node_modules/d3-transition/src/transition/index.js","./schedule.js":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/selection.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -6315,11 +6315,11 @@ var _d3Interpolate = require("d3-interpolate");
 
 var _d3Selection = require("d3-selection");
 
-var _schedule = require("./schedule");
+var _schedule = require("./schedule.js");
 
-var _tween = require("./tween");
+var _tween = require("./tween.js");
 
-var _interpolate = _interopRequireDefault(require("./interpolate"));
+var _interpolate = _interopRequireDefault(require("./interpolate.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6382,7 +6382,7 @@ function _default(name, value, priority) {
   var i = (name += "") === "transform" ? _d3Interpolate.interpolateTransformCss : _interpolate.default;
   return value == null ? this.styleTween(name, styleNull(name, i)).on("end.style." + name, styleRemove(name)) : typeof value === "function" ? this.styleTween(name, styleFunction(name, i, (0, _tween.tweenValue)(this, "style." + name, value))).each(styleMaybeRemove(this._id, name)) : this.styleTween(name, styleConstant(name, i, value), priority).on("end.style." + name, null);
 }
-},{"d3-interpolate":"../node_modules/d3-interpolate/src/index.js","d3-selection":"../node_modules/d3-selection/src/index.js","./schedule":"../node_modules/d3-transition/src/transition/schedule.js","./tween":"../node_modules/d3-transition/src/transition/tween.js","./interpolate":"../node_modules/d3-transition/src/transition/interpolate.js"}],"../node_modules/d3-transition/src/transition/styleTween.js":[function(require,module,exports) {
+},{"d3-interpolate":"../node_modules/d3-interpolate/src/index.js","d3-selection":"../node_modules/d3-selection/src/index.js","./schedule.js":"../node_modules/d3-transition/src/transition/schedule.js","./tween.js":"../node_modules/d3-transition/src/transition/tween.js","./interpolate.js":"../node_modules/d3-transition/src/transition/interpolate.js"}],"../node_modules/d3-transition/src/transition/styleTween.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -6392,7 +6392,7 @@ exports.default = _default;
 
 function styleInterpolate(name, i, priority) {
   return function (t) {
-    this.style.setProperty(name, i(t), priority);
+    this.style.setProperty(name, i.call(this, t), priority);
   };
 }
 
@@ -6424,7 +6424,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = _default;
 
-var _tween = require("./tween");
+var _tween = require("./tween.js");
 
 function textConstant(value) {
   return function () {
@@ -6442,7 +6442,7 @@ function textFunction(value) {
 function _default(value) {
   return this.tween("text", typeof value === "function" ? textFunction((0, _tween.tweenValue)(this, "text", value)) : textConstant(value == null ? "" : value + ""));
 }
-},{"./tween":"../node_modules/d3-transition/src/transition/tween.js"}],"../node_modules/d3-transition/src/transition/transition.js":[function(require,module,exports) {
+},{"./tween.js":"../node_modules/d3-transition/src/transition/tween.js"}],"../node_modules/d3-transition/src/transition/textTween.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -6450,9 +6450,43 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = _default;
 
-var _index = require("./index");
+function textInterpolate(i) {
+  return function (t) {
+    this.textContent = i.call(this, t);
+  };
+}
 
-var _schedule = _interopRequireWildcard(require("./schedule"));
+function textTween(value) {
+  var t0, i0;
+
+  function tween() {
+    var i = value.apply(this, arguments);
+    if (i !== i0) t0 = (i0 = i) && textInterpolate(i);
+    return t0;
+  }
+
+  tween._value = value;
+  return tween;
+}
+
+function _default(value) {
+  var key = "text";
+  if (arguments.length < 1) return (key = this.tween(key)) && key._value;
+  if (value == null) return this.tween(key, null);
+  if (typeof value !== "function") throw new Error();
+  return this.tween(key, textTween(value));
+}
+},{}],"../node_modules/d3-transition/src/transition/transition.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = _default;
+
+var _index = require("./index.js");
+
+var _schedule = _interopRequireWildcard(require("./schedule.js"));
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
@@ -6479,7 +6513,7 @@ function _default() {
 
   return new _index.Transition(groups, this._parents, name, id1);
 }
-},{"./index":"../node_modules/d3-transition/src/transition/index.js","./schedule":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/end.js":[function(require,module,exports) {
+},{"./index.js":"../node_modules/d3-transition/src/transition/index.js","./schedule.js":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/end.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -6487,7 +6521,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = _default;
 
-var _schedule = require("./schedule");
+var _schedule = require("./schedule.js");
 
 function _default() {
   var on0,
@@ -6524,7 +6558,7 @@ function _default() {
     });
   });
 }
-},{"./schedule":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/index.js":[function(require,module,exports) {
+},{"./schedule.js":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -6536,41 +6570,43 @@ exports.newId = newId;
 
 var _d3Selection = require("d3-selection");
 
-var _attr = _interopRequireDefault(require("./attr"));
+var _attr = _interopRequireDefault(require("./attr.js"));
 
-var _attrTween = _interopRequireDefault(require("./attrTween"));
+var _attrTween = _interopRequireDefault(require("./attrTween.js"));
 
-var _delay = _interopRequireDefault(require("./delay"));
+var _delay = _interopRequireDefault(require("./delay.js"));
 
-var _duration = _interopRequireDefault(require("./duration"));
+var _duration = _interopRequireDefault(require("./duration.js"));
 
-var _ease = _interopRequireDefault(require("./ease"));
+var _ease = _interopRequireDefault(require("./ease.js"));
 
-var _filter = _interopRequireDefault(require("./filter"));
+var _filter = _interopRequireDefault(require("./filter.js"));
 
-var _merge = _interopRequireDefault(require("./merge"));
+var _merge = _interopRequireDefault(require("./merge.js"));
 
-var _on = _interopRequireDefault(require("./on"));
+var _on = _interopRequireDefault(require("./on.js"));
 
-var _remove = _interopRequireDefault(require("./remove"));
+var _remove = _interopRequireDefault(require("./remove.js"));
 
-var _select = _interopRequireDefault(require("./select"));
+var _select = _interopRequireDefault(require("./select.js"));
 
-var _selectAll = _interopRequireDefault(require("./selectAll"));
+var _selectAll = _interopRequireDefault(require("./selectAll.js"));
 
-var _selection = _interopRequireDefault(require("./selection"));
+var _selection = _interopRequireDefault(require("./selection.js"));
 
-var _style = _interopRequireDefault(require("./style"));
+var _style = _interopRequireDefault(require("./style.js"));
 
-var _styleTween = _interopRequireDefault(require("./styleTween"));
+var _styleTween = _interopRequireDefault(require("./styleTween.js"));
 
-var _text = _interopRequireDefault(require("./text"));
+var _text = _interopRequireDefault(require("./text.js"));
 
-var _transition = _interopRequireDefault(require("./transition"));
+var _textTween = _interopRequireDefault(require("./textTween.js"));
 
-var _tween = _interopRequireDefault(require("./tween"));
+var _transition = _interopRequireDefault(require("./transition.js"));
 
-var _end = _interopRequireDefault(require("./end"));
+var _tween = _interopRequireDefault(require("./tween.js"));
+
+var _end = _interopRequireDefault(require("./end.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6612,6 +6648,7 @@ Transition.prototype = transition.prototype = {
   style: _style.default,
   styleTween: _styleTween.default,
   text: _text.default,
+  textTween: _textTween.default,
   remove: _remove.default,
   tween: _tween.default,
   delay: _delay.default,
@@ -6619,7 +6656,7 @@ Transition.prototype = transition.prototype = {
   ease: _ease.default,
   end: _end.default
 };
-},{"d3-selection":"../node_modules/d3-selection/src/index.js","./attr":"../node_modules/d3-transition/src/transition/attr.js","./attrTween":"../node_modules/d3-transition/src/transition/attrTween.js","./delay":"../node_modules/d3-transition/src/transition/delay.js","./duration":"../node_modules/d3-transition/src/transition/duration.js","./ease":"../node_modules/d3-transition/src/transition/ease.js","./filter":"../node_modules/d3-transition/src/transition/filter.js","./merge":"../node_modules/d3-transition/src/transition/merge.js","./on":"../node_modules/d3-transition/src/transition/on.js","./remove":"../node_modules/d3-transition/src/transition/remove.js","./select":"../node_modules/d3-transition/src/transition/select.js","./selectAll":"../node_modules/d3-transition/src/transition/selectAll.js","./selection":"../node_modules/d3-transition/src/transition/selection.js","./style":"../node_modules/d3-transition/src/transition/style.js","./styleTween":"../node_modules/d3-transition/src/transition/styleTween.js","./text":"../node_modules/d3-transition/src/transition/text.js","./transition":"../node_modules/d3-transition/src/transition/transition.js","./tween":"../node_modules/d3-transition/src/transition/tween.js","./end":"../node_modules/d3-transition/src/transition/end.js"}],"../node_modules/d3-ease/src/linear.js":[function(require,module,exports) {
+},{"d3-selection":"../node_modules/d3-selection/src/index.js","./attr.js":"../node_modules/d3-transition/src/transition/attr.js","./attrTween.js":"../node_modules/d3-transition/src/transition/attrTween.js","./delay.js":"../node_modules/d3-transition/src/transition/delay.js","./duration.js":"../node_modules/d3-transition/src/transition/duration.js","./ease.js":"../node_modules/d3-transition/src/transition/ease.js","./filter.js":"../node_modules/d3-transition/src/transition/filter.js","./merge.js":"../node_modules/d3-transition/src/transition/merge.js","./on.js":"../node_modules/d3-transition/src/transition/on.js","./remove.js":"../node_modules/d3-transition/src/transition/remove.js","./select.js":"../node_modules/d3-transition/src/transition/select.js","./selectAll.js":"../node_modules/d3-transition/src/transition/selectAll.js","./selection.js":"../node_modules/d3-transition/src/transition/selection.js","./style.js":"../node_modules/d3-transition/src/transition/style.js","./styleTween.js":"../node_modules/d3-transition/src/transition/styleTween.js","./text.js":"../node_modules/d3-transition/src/transition/text.js","./textTween.js":"../node_modules/d3-transition/src/transition/textTween.js","./transition.js":"../node_modules/d3-transition/src/transition/transition.js","./tween.js":"../node_modules/d3-transition/src/transition/tween.js","./end.js":"../node_modules/d3-transition/src/transition/end.js"}],"../node_modules/d3-ease/src/linear.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7188,9 +7225,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = _default;
 
-var _index = require("../transition/index");
+var _index = require("../transition/index.js");
 
-var _schedule = _interopRequireDefault(require("../transition/schedule"));
+var _schedule = _interopRequireDefault(require("../transition/schedule.js"));
 
 var _d3Ease = require("d3-ease");
 
@@ -7237,20 +7274,20 @@ function _default(name) {
 
   return new _index.Transition(groups, this._parents, name, id);
 }
-},{"../transition/index":"../node_modules/d3-transition/src/transition/index.js","../transition/schedule":"../node_modules/d3-transition/src/transition/schedule.js","d3-ease":"../node_modules/d3-ease/src/index.js","d3-timer":"../node_modules/d3-timer/src/index.js"}],"../node_modules/d3-transition/src/selection/index.js":[function(require,module,exports) {
+},{"../transition/index.js":"../node_modules/d3-transition/src/transition/index.js","../transition/schedule.js":"../node_modules/d3-transition/src/transition/schedule.js","d3-ease":"../node_modules/d3-ease/src/index.js","d3-timer":"../node_modules/d3-timer/src/index.js"}],"../node_modules/d3-transition/src/selection/index.js":[function(require,module,exports) {
 "use strict";
 
 var _d3Selection = require("d3-selection");
 
-var _interrupt = _interopRequireDefault(require("./interrupt"));
+var _interrupt = _interopRequireDefault(require("./interrupt.js"));
 
-var _transition = _interopRequireDefault(require("./transition"));
+var _transition = _interopRequireDefault(require("./transition.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _d3Selection.selection.prototype.interrupt = _interrupt.default;
 _d3Selection.selection.prototype.transition = _transition.default;
-},{"d3-selection":"../node_modules/d3-selection/src/index.js","./interrupt":"../node_modules/d3-transition/src/selection/interrupt.js","./transition":"../node_modules/d3-transition/src/selection/transition.js"}],"../node_modules/d3-transition/src/active.js":[function(require,module,exports) {
+},{"d3-selection":"../node_modules/d3-selection/src/index.js","./interrupt.js":"../node_modules/d3-transition/src/selection/interrupt.js","./transition.js":"../node_modules/d3-transition/src/selection/transition.js"}],"../node_modules/d3-transition/src/active.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7258,9 +7295,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = _default;
 
-var _index = require("./transition/index");
+var _index = require("./transition/index.js");
 
-var _schedule = require("./transition/schedule");
+var _schedule = require("./transition/schedule.js");
 
 var root = [null];
 
@@ -7281,7 +7318,7 @@ function _default(node, name) {
 
   return null;
 }
-},{"./transition/index":"../node_modules/d3-transition/src/transition/index.js","./transition/schedule":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/index.js":[function(require,module,exports) {
+},{"./transition/index.js":"../node_modules/d3-transition/src/transition/index.js","./transition/schedule.js":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7306,16 +7343,16 @@ Object.defineProperty(exports, "interrupt", {
   }
 });
 
-require("./selection/index");
+require("./selection/index.js");
 
-var _index2 = _interopRequireDefault(require("./transition/index"));
+var _index2 = _interopRequireDefault(require("./transition/index.js"));
 
-var _active = _interopRequireDefault(require("./active"));
+var _active = _interopRequireDefault(require("./active.js"));
 
-var _interrupt = _interopRequireDefault(require("./interrupt"));
+var _interrupt = _interopRequireDefault(require("./interrupt.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./selection/index":"../node_modules/d3-transition/src/selection/index.js","./transition/index":"../node_modules/d3-transition/src/transition/index.js","./active":"../node_modules/d3-transition/src/active.js","./interrupt":"../node_modules/d3-transition/src/interrupt.js"}],"../node_modules/d3-brush/src/event.js":[function(require,module,exports) {
+},{"./selection/index.js":"../node_modules/d3-transition/src/selection/index.js","./transition/index.js":"../node_modules/d3-transition/src/transition/index.js","./active.js":"../node_modules/d3-transition/src/active.js","./interrupt.js":"../node_modules/d3-transition/src/interrupt.js"}],"../node_modules/d3-brush/src/event.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28483,76 +28520,490 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; if (obj != null) { var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 var margin = {
-  top: 20,
-  left: 20,
-  right: 20,
-  bottom: 20
+  top: 10,
+  right: 100,
+  bottom: 100,
+  left: 100
 };
-var height = 600 - margin.top - margin.bottom;
 var width = 500 - margin.left - margin.right;
-var svg = d3.select('#chart-03').append('svg').attr('width', width + margin.left + margin.right).attr('height', height + margin.top + margin.bottom).append('g').attr('transform', 'translate(' + margin.left + ',' + margin.top + ')'); // this is the parameter part useful for exploration
+var height = 600 - margin.top - margin.bottom;
+var svg = d3.select('#chart-03').append('svg').attr('width', width + margin.left + margin.right).attr('height', height + margin.top + margin.bottom).append('g').attr('transform', 'translate(' + margin.left + ',' + margin.top + ')').style('align', 'center');
+var data = [{
+  col: 0,
+  row: 0
+}, {
+  col: 0,
+  row: 1
+}, {
+  col: 0,
+  row: 2
+}, {
+  col: 0,
+  row: 3
+}, {
+  col: 0,
+  row: 4
+}, {
+  col: 0,
+  row: 5
+}, {
+  col: 0,
+  row: 6
+}, {
+  col: 0,
+  row: 7
+}, {
+  col: 0,
+  row: 8
+}, {
+  col: 0,
+  row: 9
+}, {
+  col: 0,
+  row: 10
+}, {
+  col: 0,
+  row: 11
+}, {
+  col: 0,
+  row: 12
+}, {
+  col: 0,
+  row: 13
+}, {
+  col: 0,
+  row: 14
+}, {
+  col: 1,
+  row: 0
+}, {
+  col: 1,
+  row: 1
+}, {
+  col: 1,
+  row: 2
+}, {
+  col: 1,
+  row: 3
+}, {
+  col: 1,
+  row: 4
+}, {
+  col: 1,
+  row: 5
+}, {
+  col: 1,
+  row: 6
+}, {
+  col: 1,
+  row: 7
+}, {
+  col: 1,
+  row: 8
+}, {
+  col: 1,
+  row: 9
+}, {
+  col: 1,
+  row: 10
+}, {
+  col: 1,
+  row: 11
+}, {
+  col: 1,
+  row: 12
+}, {
+  col: 1,
+  row: 13
+}, {
+  col: 1,
+  row: 14
+}, {
+  col: 2,
+  row: 0
+}, {
+  col: 2,
+  row: 1
+}, {
+  col: 2,
+  row: 2
+}, {
+  col: 2,
+  row: 3
+}, {
+  col: 2,
+  row: 4
+}, {
+  col: 2,
+  row: 5
+}, {
+  col: 2,
+  row: 6
+}, {
+  col: 2,
+  row: 7
+}, {
+  col: 2,
+  row: 8
+}, {
+  col: 2,
+  row: 9
+}, {
+  col: 2,
+  row: 10
+}, {
+  col: 2,
+  row: 11
+}, {
+  col: 2,
+  row: 12
+}, {
+  col: 2,
+  row: 13
+}, {
+  col: 3,
+  row: 0
+}, {
+  col: 3,
+  row: 1
+}, {
+  col: 3,
+  row: 2
+}, {
+  col: 3,
+  row: 3
+}, {
+  col: 3,
+  row: 4
+}, {
+  col: 3,
+  row: 5
+}, {
+  col: 3,
+  row: 6
+}, {
+  col: 3,
+  row: 7
+}, {
+  col: 3,
+  row: 8
+}, {
+  col: 3,
+  row: 9
+}, {
+  col: 3,
+  row: 10
+}, {
+  col: 3,
+  row: 11
+}, {
+  col: 3,
+  row: 12
+}, {
+  col: 3,
+  row: 13
+}, {
+  col: 4,
+  row: 0
+}, {
+  col: 4,
+  row: 1
+}, {
+  col: 4,
+  row: 2
+}, {
+  col: 4,
+  row: 3
+}, {
+  col: 4,
+  row: 4
+}, {
+  col: 4,
+  row: 5
+}, {
+  col: 4,
+  row: 6
+}, {
+  col: 4,
+  row: 7
+}, {
+  col: 4,
+  row: 8
+}, {
+  col: 4,
+  row: 9
+}, {
+  col: 4,
+  row: 10
+}, {
+  col: 4,
+  row: 11
+}, {
+  col: 4,
+  row: 12
+}, {
+  col: 4,
+  row: 13
+}, {
+  col: 5,
+  row: 0
+}, {
+  col: 5,
+  row: 1
+}, {
+  col: 5,
+  row: 2
+}, {
+  col: 5,
+  row: 3
+}, {
+  col: 5,
+  row: 4
+}, {
+  col: 5,
+  row: 5
+}, {
+  col: 5,
+  row: 6
+}, {
+  col: 5,
+  row: 7
+}, {
+  col: 5,
+  row: 8
+}, {
+  col: 5,
+  row: 9
+}, {
+  col: 5,
+  row: 10
+}, {
+  col: 5,
+  row: 11
+}, {
+  col: 5,
+  row: 12
+}, {
+  col: 5,
+  row: 13
+}, {
+  col: 6,
+  row: 0
+}, {
+  col: 6,
+  row: 1
+}, {
+  col: 6,
+  row: 2
+}, {
+  col: 6,
+  row: 3
+}, {
+  col: 6,
+  row: 4
+}, {
+  col: 6,
+  row: 5
+}, {
+  col: 6,
+  row: 6
+}, {
+  col: 6,
+  row: 7
+}, {
+  col: 6,
+  row: 8
+}, {
+  col: 6,
+  row: 9
+}, {
+  col: 6,
+  row: 10
+}, {
+  col: 6,
+  row: 11
+}, {
+  col: 6,
+  row: 12
+}, {
+  col: 6,
+  row: 13
+}, {
+  col: 7,
+  row: 0
+}, {
+  col: 7,
+  row: 1
+}, {
+  col: 7,
+  row: 2
+}, {
+  col: 7,
+  row: 3
+}, {
+  col: 7,
+  row: 4
+}, {
+  col: 7,
+  row: 5
+}, {
+  col: 7,
+  row: 6
+}, {
+  col: 7,
+  row: 7
+}, {
+  col: 7,
+  row: 8
+}, {
+  col: 7,
+  row: 9
+}, {
+  col: 7,
+  row: 10
+}, {
+  col: 7,
+  row: 11
+}, {
+  col: 7,
+  row: 12
+}, {
+  col: 7,
+  row: 13
+}, {
+  col: 8,
+  row: 0
+}, {
+  col: 8,
+  row: 1
+}, {
+  col: 8,
+  row: 2
+}, {
+  col: 8,
+  row: 3
+}, {
+  col: 8,
+  row: 4
+}, {
+  col: 8,
+  row: 5
+}, {
+  col: 8,
+  row: 6
+}, {
+  col: 8,
+  row: 7
+}, {
+  col: 8,
+  row: 8
+}, {
+  col: 8,
+  row: 9
+}, {
+  col: 8,
+  row: 10
+}, {
+  col: 8,
+  row: 11
+}, {
+  col: 8,
+  row: 12
+}, {
+  col: 8,
+  row: 13
+}, {
+  col: 9,
+  row: 0
+}, {
+  col: 9,
+  row: 1
+}, {
+  col: 9,
+  row: 2
+}, {
+  col: 9,
+  row: 3
+}, {
+  col: 9,
+  row: 4
+}, {
+  col: 9,
+  row: 5
+}, {
+  col: 9,
+  row: 6
+}, {
+  col: 9,
+  row: 7
+}, {
+  col: 9,
+  row: 8
+}, {
+  col: 9,
+  row: 9
+}, {
+  col: 9,
+  row: 10
+}, {
+  col: 9,
+  row: 11
+}, {
+  col: 9,
+  row: 12
+}, {
+  col: 9,
+  row: 13
+}];
+var xScale = d3.scaleLinear().domain([0, 9]).range([0, width]);
+var yScale = d3.scaleLinear().domain([0, 14]).range([0, height]); // this is the parameter part useful for exploration
 // you can play with these numbers
 
-var numCol = 10;
-var numRow = 16;
-var pad = 4; // here some pre-backed calculations useful for the next part
-
-var tot = numCol * numRow;
-
-var _w = width / numCol;
-
-var _h = height / numRow; // this portion creates the columns
-
-
-var cols = svg.selectAll('g').data(d3.range(numCol)).enter().append('g').attr('transform', function (d, i) {
-  return 'translate(' + i * _w + ',' + pad / 2 * -1 + ')';
-}); // and here the rows, for each column
-
-var all = cols.selectAll('g').data(d3.range(numRow)).enter().append('g').attr('transform', function (d, i) {
-  return 'translate(' + pad / 2 * -1 + ',' + i * _h + ')';
-}); // then, for each cell we appends a rect
-
-all.append('circle').attr('class', 'dot').attr('cx', _w / 2).attr('cy', _w / 4).attr('r', 10);
-
-function render() {
-  // Grabbing the div that our svg is inside of
-  // and asking it wide it is
-  // "hey <svg> that is really a <g>, go through
-  // your parents until you find a div"
-  var svgContainer = svg.node().closest('div');
-  var svgWidth = svgContainer.offsetWidth;
-  console.log(svgWidth); // .node() means "no really give me the HTML element,
-  //    not the weird d3 representation"
-  // .parentNode means "give me the svg that's outside
-  //    of the g," which we can actually change
-  //    the size of with .attr
-  // .closest('svg') means "go through your parents until
-  //   you find an svg, in case we have a g in a g in a g"
-
-  var actualSvg = d3.select(svg.node().closest('svg'));
-  actualSvg.attr('width', svgWidth); // Remember how we do
-  //    var width = 700 - margin.left - margin.right?
-  // this is the same thing, since svgWidth is the FULL
-  // SIZE of the svg, not the drawing area (the g)
-
-  var newWidth = svgWidth - margin.left - margin.right;
-  var new_w = newWidth / numCol;
-  console.log('This is', new_w); // Update our axes
-  // First, update the scale
-  // Then, update the axis
-
-  svg.selectAll('g').attr('transform', function (d, i) {
-    return 'translate(' + i * new_w + ',' + pad / 2 * -1 + ')';
-  });
-  svg.selectAll('.dot').attr('cx', new_w / 4).attr('cy', new_w / 4);
-  console.log('resized to 500');
-} // When the window resizes, run the function
-// that redraws everything
-
-
-window.addEventListener('resize', render); // And now that the page has loaded, let's just try
-// to do it once before the page has resized
-
-render();
+console.log(data);
+d3.select('#victim01').on('stepin', function () {
+  console.log('several');
+  svg.selectAll("rect[id='0'], rect[id='1'], rect[id='2'], rect[id='3'], rect[id='4'], rect[id='5'], rect[id='6'], rect[id='7'], rect[id='8'], rect[id='9'], rect[id='10'], rect[id='11'], rect[id='12'], rect[id='13'], rect[id='14'], rect[id='15'], rect[id='16'], rect[id='17'], rect[id='18'], rect[id='19'], rect[id='20'], rect[id='21'], rect[id='22'], rect[id='23'], rect[id='24'], rect[id='25'], rect[id='26'], rect[id='27'], rect[id='28'], rect[id='29'], rect[id='30'], rect[id='31'], rect[id='32'], rect[id='33'], rect[id='34'], rect[id='35'], rect[id='36'], rect[id='37'], rect[id='38'], rect[id='39'], rect[id='40'], rect[id='41'], rect[id='42'], rect[id='43'], rect[id='44'], rect[id='45'], rect[id='46'], rect[id='47'], rect[id='48'], rect[id='49'], rect[id='50'], rect[id='51'], rect[id='52'], rect[id='53'], rect[id='54'], rect[id='55'], rect[id='56'], rect[id='57'], rect[id='58'], rect[id='59'], rect[id='60'], rect[id='61'], rect[id='62'], rect[id='63'], rect[id='64'], rect[id='65'], rect[id='66'], rect[id='67']").attr('fill', '#6BA8A9');
+  svg.select("rect[id='0']").attr('fill', '#d77fa1');
+});
+d3.select('#victim02').on('stepin', function () {
+  svg.selectAll("rect[id='68'], rect[id='69'], rect[id='70'], rect[id='71'], rect[id='72'], rect[id='73'], rect[id='74'], rect[id='75'], rect[id='76'], rect[id='77'], rect[id='78'], rect[id='79'], rect[id='80'], rect[id='81'], rect[id='82'], rect[id='83'], rect[id='84'], rect[id='85'], rect[id='86'], rect[id='87'], rect[id='88'], rect[id='89'], rect[id='90'], rect[id='91']").attr('fill', '#C7F0DB');
+  svg.select("rect[id='72']").attr('fill', '#d77fa1');
+});
+d3.select('#victim03').on('stepin', function () {
+  svg.selectAll("rect[id='92'], rect[id='93'], rect[id='94'], rect[id='95'], rect[id='96'], rect[id='97'], rect[id='98'], rect[id='99'], rect[id='100'], rect[id='101'], rect[id='102'], rect[id='103'], rect[id='104'], rect[id='105'], rect[id='106'], rect[id='107'], rect[id='108'], rect[id='109']").attr('fill', '#e3f6f5');
+  svg.select("rect[id='105']").attr('fill', '#d77fa1');
+});
+d3.select('#victim04').on('stepin', function () {
+  svg.selectAll("rect[id='110'], rect[id='111'], rect[id='112'], rect[id='113'], rect[id='114'], rect[id='115'], rect[id='116'], rect[id='117'], rect[id='118'],rect[id='119'], rect[id='120'], rect[id='121'], rect[id='122'], rect[id='123'], rect[id='124'], rect[id='125'], rect[id='126'], rect[id='127'], rect[id='128'], rect[id='129'], rect[id='130'], rect[id='131'], rect[id='132']").attr('fill', '#46b3e6');
+  svg.select("rect[id='120']").attr('fill', '#d77fa1');
+});
+d3.select('#victim05').on('stepin', function () {
+  svg.selectAll("rect[id='133'], rect[id='134'], rect[id='135'], rect[id='136'], rect[id='137'], rect[id='138'], rect[id='139'], rect[id='140'], rect[id='141'], rect[id='142'], rect[id='143'], rect[id='144'], rect[id='145'], rect[id='146'], rect[id='147'], rect[id='148']").attr('fill', 'blue');
+  svg.select("rect[id='145']").attr('fill', '#d77fa1');
+});
+d3.select('#victim06').on('stepin', function () {
+  svg.selectAll("rect[id='149'], rect[id='150'], rect[id='151'], rect[id='152']").attr('fill', '#537ec5');
+  svg.select("rect[id='151']").attr('fill', '#d77fa1');
+});
+svg.selectAll('rect').data(data).enter().append('rect').attr('width', 20).attr('height', 20).attr('x', function (d) {
+  return xScale(d.col);
+}).attr('y', function (d) {
+  return yScale(d.row);
+}).attr('fill', 'lightgrey').attr('id', function (d) {
+  return d.col + d.row * 10;
+}); // .style('background-image', 'url("../images/women.png“)')
+// const groups = all._groups
+// const group = groups.keys
+// console.log(groups)
+// const col = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+// const row = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+// all
+//   .append('rect')
+//   .attr('x', _w / 2)
+//   .attr('y', _w / 4)
+//   .attr('width', 20)
+//   .attr('height', 20)
+//   .attr('fill', 'grey')
+//
 },{"d3":"../node_modules/d3/index.js"}]},{},["scripts/chart-03.js"], null)
 //# sourceMappingURL=/chart-03.2001f349.js.map

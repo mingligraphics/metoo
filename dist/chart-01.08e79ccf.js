@@ -5741,7 +5741,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = _default;
 
-var _schedule = require("./transition/schedule");
+var _schedule = require("./transition/schedule.js");
 
 function _default(node, name) {
   var schedules = node.__transition,
@@ -5767,7 +5767,7 @@ function _default(node, name) {
 
   if (empty) delete node.__transition;
 }
-},{"./transition/schedule":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/selection/interrupt.js":[function(require,module,exports) {
+},{"./transition/schedule.js":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/selection/interrupt.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5775,7 +5775,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = _default;
 
-var _interrupt = _interopRequireDefault(require("../interrupt"));
+var _interrupt = _interopRequireDefault(require("../interrupt.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -5784,7 +5784,7 @@ function _default(name) {
     (0, _interrupt.default)(this, name);
   });
 }
-},{"../interrupt":"../node_modules/d3-transition/src/interrupt.js"}],"../node_modules/d3-transition/src/transition/tween.js":[function(require,module,exports) {
+},{"../interrupt.js":"../node_modules/d3-transition/src/interrupt.js"}],"../node_modules/d3-transition/src/transition/tween.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5793,7 +5793,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = _default;
 exports.tweenValue = tweenValue;
 
-var _schedule = require("./schedule");
+var _schedule = require("./schedule.js");
 
 function tweenRemove(id, name) {
   var tween0, tween1;
@@ -5877,7 +5877,7 @@ function tweenValue(transition, name, value) {
     return (0, _schedule.get)(node, id).value[name];
   };
 }
-},{"./schedule":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/interpolate.js":[function(require,module,exports) {
+},{"./schedule.js":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/interpolate.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5905,9 +5905,9 @@ var _d3Interpolate = require("d3-interpolate");
 
 var _d3Selection = require("d3-selection");
 
-var _tween = require("./tween");
+var _tween = require("./tween.js");
 
-var _interpolate = _interopRequireDefault(require("./interpolate"));
+var _interpolate = _interopRequireDefault(require("./interpolate.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -5974,7 +5974,7 @@ function _default(name, value) {
       i = fullname === "transform" ? _d3Interpolate.interpolateTransformSvg : _interpolate.default;
   return this.attrTween(name, typeof value === "function" ? (fullname.local ? attrFunctionNS : attrFunction)(fullname, i, (0, _tween.tweenValue)(this, "attr." + name, value)) : value == null ? (fullname.local ? attrRemoveNS : attrRemove)(fullname) : (fullname.local ? attrConstantNS : attrConstant)(fullname, i, value));
 }
-},{"d3-interpolate":"../node_modules/d3-interpolate/src/index.js","d3-selection":"../node_modules/d3-selection/src/index.js","./tween":"../node_modules/d3-transition/src/transition/tween.js","./interpolate":"../node_modules/d3-transition/src/transition/interpolate.js"}],"../node_modules/d3-transition/src/transition/attrTween.js":[function(require,module,exports) {
+},{"d3-interpolate":"../node_modules/d3-interpolate/src/index.js","d3-selection":"../node_modules/d3-selection/src/index.js","./tween.js":"../node_modules/d3-transition/src/transition/tween.js","./interpolate.js":"../node_modules/d3-transition/src/transition/interpolate.js"}],"../node_modules/d3-transition/src/transition/attrTween.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5986,13 +5986,13 @@ var _d3Selection = require("d3-selection");
 
 function attrInterpolate(name, i) {
   return function (t) {
-    this.setAttribute(name, i(t));
+    this.setAttribute(name, i.call(this, t));
   };
 }
 
 function attrInterpolateNS(fullname, i) {
   return function (t) {
-    this.setAttributeNS(fullname.space, fullname.local, i(t));
+    this.setAttributeNS(fullname.space, fullname.local, i.call(this, t));
   };
 }
 
@@ -6038,7 +6038,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = _default;
 
-var _schedule = require("./schedule");
+var _schedule = require("./schedule.js");
 
 function delayFunction(id, value) {
   return function () {
@@ -6056,7 +6056,7 @@ function _default(value) {
   var id = this._id;
   return arguments.length ? this.each((typeof value === "function" ? delayFunction : delayConstant)(id, value)) : (0, _schedule.get)(this.node(), id).delay;
 }
-},{"./schedule":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/duration.js":[function(require,module,exports) {
+},{"./schedule.js":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/duration.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -6064,7 +6064,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = _default;
 
-var _schedule = require("./schedule");
+var _schedule = require("./schedule.js");
 
 function durationFunction(id, value) {
   return function () {
@@ -6082,7 +6082,7 @@ function _default(value) {
   var id = this._id;
   return arguments.length ? this.each((typeof value === "function" ? durationFunction : durationConstant)(id, value)) : (0, _schedule.get)(this.node(), id).duration;
 }
-},{"./schedule":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/ease.js":[function(require,module,exports) {
+},{"./schedule.js":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/ease.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -6090,7 +6090,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = _default;
 
-var _schedule = require("./schedule");
+var _schedule = require("./schedule.js");
 
 function easeConstant(id, value) {
   if (typeof value !== "function") throw new Error();
@@ -6103,7 +6103,7 @@ function _default(value) {
   var id = this._id;
   return arguments.length ? this.each(easeConstant(id, value)) : (0, _schedule.get)(this.node(), id).ease;
 }
-},{"./schedule":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/filter.js":[function(require,module,exports) {
+},{"./schedule.js":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/filter.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -6113,7 +6113,7 @@ exports.default = _default;
 
 var _d3Selection = require("d3-selection");
 
-var _index = require("./index");
+var _index = require("./index.js");
 
 function _default(match) {
   if (typeof match !== "function") match = (0, _d3Selection.matcher)(match);
@@ -6128,7 +6128,7 @@ function _default(match) {
 
   return new _index.Transition(subgroups, this._parents, this._name, this._id);
 }
-},{"d3-selection":"../node_modules/d3-selection/src/index.js","./index":"../node_modules/d3-transition/src/transition/index.js"}],"../node_modules/d3-transition/src/transition/merge.js":[function(require,module,exports) {
+},{"d3-selection":"../node_modules/d3-selection/src/index.js","./index.js":"../node_modules/d3-transition/src/transition/index.js"}],"../node_modules/d3-transition/src/transition/merge.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -6136,7 +6136,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = _default;
 
-var _index = require("./index");
+var _index = require("./index.js");
 
 function _default(transition) {
   if (transition._id !== this._id) throw new Error();
@@ -6155,7 +6155,7 @@ function _default(transition) {
 
   return new _index.Transition(merges, this._parents, this._name, this._id);
 }
-},{"./index":"../node_modules/d3-transition/src/transition/index.js"}],"../node_modules/d3-transition/src/transition/on.js":[function(require,module,exports) {
+},{"./index.js":"../node_modules/d3-transition/src/transition/index.js"}],"../node_modules/d3-transition/src/transition/on.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -6163,7 +6163,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = _default;
 
-var _schedule = require("./schedule");
+var _schedule = require("./schedule.js");
 
 function start(name) {
   return (name + "").trim().split(/^|\s+/).every(function (t) {
@@ -6192,7 +6192,7 @@ function _default(name, listener) {
   var id = this._id;
   return arguments.length < 2 ? (0, _schedule.get)(this.node(), id).on.on(name) : this.each(onFunction(id, name, listener));
 }
-},{"./schedule":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/remove.js":[function(require,module,exports) {
+},{"./schedule.js":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/remove.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -6223,9 +6223,9 @@ exports.default = _default;
 
 var _d3Selection = require("d3-selection");
 
-var _index = require("./index");
+var _index = require("./index.js");
 
-var _schedule = _interopRequireWildcard(require("./schedule"));
+var _schedule = _interopRequireWildcard(require("./schedule.js"));
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
@@ -6248,7 +6248,7 @@ function _default(select) {
 
   return new _index.Transition(subgroups, this._parents, name, id);
 }
-},{"d3-selection":"../node_modules/d3-selection/src/index.js","./index":"../node_modules/d3-transition/src/transition/index.js","./schedule":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/selectAll.js":[function(require,module,exports) {
+},{"d3-selection":"../node_modules/d3-selection/src/index.js","./index.js":"../node_modules/d3-transition/src/transition/index.js","./schedule.js":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/selectAll.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -6258,9 +6258,9 @@ exports.default = _default;
 
 var _d3Selection = require("d3-selection");
 
-var _index = require("./index");
+var _index = require("./index.js");
 
-var _schedule = _interopRequireWildcard(require("./schedule"));
+var _schedule = _interopRequireWildcard(require("./schedule.js"));
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
@@ -6288,7 +6288,7 @@ function _default(select) {
 
   return new _index.Transition(subgroups, parents, name, id);
 }
-},{"d3-selection":"../node_modules/d3-selection/src/index.js","./index":"../node_modules/d3-transition/src/transition/index.js","./schedule":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/selection.js":[function(require,module,exports) {
+},{"d3-selection":"../node_modules/d3-selection/src/index.js","./index.js":"../node_modules/d3-transition/src/transition/index.js","./schedule.js":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/selection.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -6315,11 +6315,11 @@ var _d3Interpolate = require("d3-interpolate");
 
 var _d3Selection = require("d3-selection");
 
-var _schedule = require("./schedule");
+var _schedule = require("./schedule.js");
 
-var _tween = require("./tween");
+var _tween = require("./tween.js");
 
-var _interpolate = _interopRequireDefault(require("./interpolate"));
+var _interpolate = _interopRequireDefault(require("./interpolate.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6382,7 +6382,7 @@ function _default(name, value, priority) {
   var i = (name += "") === "transform" ? _d3Interpolate.interpolateTransformCss : _interpolate.default;
   return value == null ? this.styleTween(name, styleNull(name, i)).on("end.style." + name, styleRemove(name)) : typeof value === "function" ? this.styleTween(name, styleFunction(name, i, (0, _tween.tweenValue)(this, "style." + name, value))).each(styleMaybeRemove(this._id, name)) : this.styleTween(name, styleConstant(name, i, value), priority).on("end.style." + name, null);
 }
-},{"d3-interpolate":"../node_modules/d3-interpolate/src/index.js","d3-selection":"../node_modules/d3-selection/src/index.js","./schedule":"../node_modules/d3-transition/src/transition/schedule.js","./tween":"../node_modules/d3-transition/src/transition/tween.js","./interpolate":"../node_modules/d3-transition/src/transition/interpolate.js"}],"../node_modules/d3-transition/src/transition/styleTween.js":[function(require,module,exports) {
+},{"d3-interpolate":"../node_modules/d3-interpolate/src/index.js","d3-selection":"../node_modules/d3-selection/src/index.js","./schedule.js":"../node_modules/d3-transition/src/transition/schedule.js","./tween.js":"../node_modules/d3-transition/src/transition/tween.js","./interpolate.js":"../node_modules/d3-transition/src/transition/interpolate.js"}],"../node_modules/d3-transition/src/transition/styleTween.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -6392,7 +6392,7 @@ exports.default = _default;
 
 function styleInterpolate(name, i, priority) {
   return function (t) {
-    this.style.setProperty(name, i(t), priority);
+    this.style.setProperty(name, i.call(this, t), priority);
   };
 }
 
@@ -6424,7 +6424,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = _default;
 
-var _tween = require("./tween");
+var _tween = require("./tween.js");
 
 function textConstant(value) {
   return function () {
@@ -6442,7 +6442,7 @@ function textFunction(value) {
 function _default(value) {
   return this.tween("text", typeof value === "function" ? textFunction((0, _tween.tweenValue)(this, "text", value)) : textConstant(value == null ? "" : value + ""));
 }
-},{"./tween":"../node_modules/d3-transition/src/transition/tween.js"}],"../node_modules/d3-transition/src/transition/transition.js":[function(require,module,exports) {
+},{"./tween.js":"../node_modules/d3-transition/src/transition/tween.js"}],"../node_modules/d3-transition/src/transition/textTween.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -6450,9 +6450,43 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = _default;
 
-var _index = require("./index");
+function textInterpolate(i) {
+  return function (t) {
+    this.textContent = i.call(this, t);
+  };
+}
 
-var _schedule = _interopRequireWildcard(require("./schedule"));
+function textTween(value) {
+  var t0, i0;
+
+  function tween() {
+    var i = value.apply(this, arguments);
+    if (i !== i0) t0 = (i0 = i) && textInterpolate(i);
+    return t0;
+  }
+
+  tween._value = value;
+  return tween;
+}
+
+function _default(value) {
+  var key = "text";
+  if (arguments.length < 1) return (key = this.tween(key)) && key._value;
+  if (value == null) return this.tween(key, null);
+  if (typeof value !== "function") throw new Error();
+  return this.tween(key, textTween(value));
+}
+},{}],"../node_modules/d3-transition/src/transition/transition.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = _default;
+
+var _index = require("./index.js");
+
+var _schedule = _interopRequireWildcard(require("./schedule.js"));
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
@@ -6479,7 +6513,7 @@ function _default() {
 
   return new _index.Transition(groups, this._parents, name, id1);
 }
-},{"./index":"../node_modules/d3-transition/src/transition/index.js","./schedule":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/end.js":[function(require,module,exports) {
+},{"./index.js":"../node_modules/d3-transition/src/transition/index.js","./schedule.js":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/end.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -6487,7 +6521,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = _default;
 
-var _schedule = require("./schedule");
+var _schedule = require("./schedule.js");
 
 function _default() {
   var on0,
@@ -6524,7 +6558,7 @@ function _default() {
     });
   });
 }
-},{"./schedule":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/index.js":[function(require,module,exports) {
+},{"./schedule.js":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/transition/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -6536,41 +6570,43 @@ exports.newId = newId;
 
 var _d3Selection = require("d3-selection");
 
-var _attr = _interopRequireDefault(require("./attr"));
+var _attr = _interopRequireDefault(require("./attr.js"));
 
-var _attrTween = _interopRequireDefault(require("./attrTween"));
+var _attrTween = _interopRequireDefault(require("./attrTween.js"));
 
-var _delay = _interopRequireDefault(require("./delay"));
+var _delay = _interopRequireDefault(require("./delay.js"));
 
-var _duration = _interopRequireDefault(require("./duration"));
+var _duration = _interopRequireDefault(require("./duration.js"));
 
-var _ease = _interopRequireDefault(require("./ease"));
+var _ease = _interopRequireDefault(require("./ease.js"));
 
-var _filter = _interopRequireDefault(require("./filter"));
+var _filter = _interopRequireDefault(require("./filter.js"));
 
-var _merge = _interopRequireDefault(require("./merge"));
+var _merge = _interopRequireDefault(require("./merge.js"));
 
-var _on = _interopRequireDefault(require("./on"));
+var _on = _interopRequireDefault(require("./on.js"));
 
-var _remove = _interopRequireDefault(require("./remove"));
+var _remove = _interopRequireDefault(require("./remove.js"));
 
-var _select = _interopRequireDefault(require("./select"));
+var _select = _interopRequireDefault(require("./select.js"));
 
-var _selectAll = _interopRequireDefault(require("./selectAll"));
+var _selectAll = _interopRequireDefault(require("./selectAll.js"));
 
-var _selection = _interopRequireDefault(require("./selection"));
+var _selection = _interopRequireDefault(require("./selection.js"));
 
-var _style = _interopRequireDefault(require("./style"));
+var _style = _interopRequireDefault(require("./style.js"));
 
-var _styleTween = _interopRequireDefault(require("./styleTween"));
+var _styleTween = _interopRequireDefault(require("./styleTween.js"));
 
-var _text = _interopRequireDefault(require("./text"));
+var _text = _interopRequireDefault(require("./text.js"));
 
-var _transition = _interopRequireDefault(require("./transition"));
+var _textTween = _interopRequireDefault(require("./textTween.js"));
 
-var _tween = _interopRequireDefault(require("./tween"));
+var _transition = _interopRequireDefault(require("./transition.js"));
 
-var _end = _interopRequireDefault(require("./end"));
+var _tween = _interopRequireDefault(require("./tween.js"));
+
+var _end = _interopRequireDefault(require("./end.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6612,6 +6648,7 @@ Transition.prototype = transition.prototype = {
   style: _style.default,
   styleTween: _styleTween.default,
   text: _text.default,
+  textTween: _textTween.default,
   remove: _remove.default,
   tween: _tween.default,
   delay: _delay.default,
@@ -6619,7 +6656,7 @@ Transition.prototype = transition.prototype = {
   ease: _ease.default,
   end: _end.default
 };
-},{"d3-selection":"../node_modules/d3-selection/src/index.js","./attr":"../node_modules/d3-transition/src/transition/attr.js","./attrTween":"../node_modules/d3-transition/src/transition/attrTween.js","./delay":"../node_modules/d3-transition/src/transition/delay.js","./duration":"../node_modules/d3-transition/src/transition/duration.js","./ease":"../node_modules/d3-transition/src/transition/ease.js","./filter":"../node_modules/d3-transition/src/transition/filter.js","./merge":"../node_modules/d3-transition/src/transition/merge.js","./on":"../node_modules/d3-transition/src/transition/on.js","./remove":"../node_modules/d3-transition/src/transition/remove.js","./select":"../node_modules/d3-transition/src/transition/select.js","./selectAll":"../node_modules/d3-transition/src/transition/selectAll.js","./selection":"../node_modules/d3-transition/src/transition/selection.js","./style":"../node_modules/d3-transition/src/transition/style.js","./styleTween":"../node_modules/d3-transition/src/transition/styleTween.js","./text":"../node_modules/d3-transition/src/transition/text.js","./transition":"../node_modules/d3-transition/src/transition/transition.js","./tween":"../node_modules/d3-transition/src/transition/tween.js","./end":"../node_modules/d3-transition/src/transition/end.js"}],"../node_modules/d3-ease/src/linear.js":[function(require,module,exports) {
+},{"d3-selection":"../node_modules/d3-selection/src/index.js","./attr.js":"../node_modules/d3-transition/src/transition/attr.js","./attrTween.js":"../node_modules/d3-transition/src/transition/attrTween.js","./delay.js":"../node_modules/d3-transition/src/transition/delay.js","./duration.js":"../node_modules/d3-transition/src/transition/duration.js","./ease.js":"../node_modules/d3-transition/src/transition/ease.js","./filter.js":"../node_modules/d3-transition/src/transition/filter.js","./merge.js":"../node_modules/d3-transition/src/transition/merge.js","./on.js":"../node_modules/d3-transition/src/transition/on.js","./remove.js":"../node_modules/d3-transition/src/transition/remove.js","./select.js":"../node_modules/d3-transition/src/transition/select.js","./selectAll.js":"../node_modules/d3-transition/src/transition/selectAll.js","./selection.js":"../node_modules/d3-transition/src/transition/selection.js","./style.js":"../node_modules/d3-transition/src/transition/style.js","./styleTween.js":"../node_modules/d3-transition/src/transition/styleTween.js","./text.js":"../node_modules/d3-transition/src/transition/text.js","./textTween.js":"../node_modules/d3-transition/src/transition/textTween.js","./transition.js":"../node_modules/d3-transition/src/transition/transition.js","./tween.js":"../node_modules/d3-transition/src/transition/tween.js","./end.js":"../node_modules/d3-transition/src/transition/end.js"}],"../node_modules/d3-ease/src/linear.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7188,9 +7225,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = _default;
 
-var _index = require("../transition/index");
+var _index = require("../transition/index.js");
 
-var _schedule = _interopRequireDefault(require("../transition/schedule"));
+var _schedule = _interopRequireDefault(require("../transition/schedule.js"));
 
 var _d3Ease = require("d3-ease");
 
@@ -7237,20 +7274,20 @@ function _default(name) {
 
   return new _index.Transition(groups, this._parents, name, id);
 }
-},{"../transition/index":"../node_modules/d3-transition/src/transition/index.js","../transition/schedule":"../node_modules/d3-transition/src/transition/schedule.js","d3-ease":"../node_modules/d3-ease/src/index.js","d3-timer":"../node_modules/d3-timer/src/index.js"}],"../node_modules/d3-transition/src/selection/index.js":[function(require,module,exports) {
+},{"../transition/index.js":"../node_modules/d3-transition/src/transition/index.js","../transition/schedule.js":"../node_modules/d3-transition/src/transition/schedule.js","d3-ease":"../node_modules/d3-ease/src/index.js","d3-timer":"../node_modules/d3-timer/src/index.js"}],"../node_modules/d3-transition/src/selection/index.js":[function(require,module,exports) {
 "use strict";
 
 var _d3Selection = require("d3-selection");
 
-var _interrupt = _interopRequireDefault(require("./interrupt"));
+var _interrupt = _interopRequireDefault(require("./interrupt.js"));
 
-var _transition = _interopRequireDefault(require("./transition"));
+var _transition = _interopRequireDefault(require("./transition.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _d3Selection.selection.prototype.interrupt = _interrupt.default;
 _d3Selection.selection.prototype.transition = _transition.default;
-},{"d3-selection":"../node_modules/d3-selection/src/index.js","./interrupt":"../node_modules/d3-transition/src/selection/interrupt.js","./transition":"../node_modules/d3-transition/src/selection/transition.js"}],"../node_modules/d3-transition/src/active.js":[function(require,module,exports) {
+},{"d3-selection":"../node_modules/d3-selection/src/index.js","./interrupt.js":"../node_modules/d3-transition/src/selection/interrupt.js","./transition.js":"../node_modules/d3-transition/src/selection/transition.js"}],"../node_modules/d3-transition/src/active.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7258,9 +7295,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = _default;
 
-var _index = require("./transition/index");
+var _index = require("./transition/index.js");
 
-var _schedule = require("./transition/schedule");
+var _schedule = require("./transition/schedule.js");
 
 var root = [null];
 
@@ -7281,7 +7318,7 @@ function _default(node, name) {
 
   return null;
 }
-},{"./transition/index":"../node_modules/d3-transition/src/transition/index.js","./transition/schedule":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/index.js":[function(require,module,exports) {
+},{"./transition/index.js":"../node_modules/d3-transition/src/transition/index.js","./transition/schedule.js":"../node_modules/d3-transition/src/transition/schedule.js"}],"../node_modules/d3-transition/src/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7306,16 +7343,16 @@ Object.defineProperty(exports, "interrupt", {
   }
 });
 
-require("./selection/index");
+require("./selection/index.js");
 
-var _index2 = _interopRequireDefault(require("./transition/index"));
+var _index2 = _interopRequireDefault(require("./transition/index.js"));
 
-var _active = _interopRequireDefault(require("./active"));
+var _active = _interopRequireDefault(require("./active.js"));
 
-var _interrupt = _interopRequireDefault(require("./interrupt"));
+var _interrupt = _interopRequireDefault(require("./interrupt.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./selection/index":"../node_modules/d3-transition/src/selection/index.js","./transition/index":"../node_modules/d3-transition/src/transition/index.js","./active":"../node_modules/d3-transition/src/active.js","./interrupt":"../node_modules/d3-transition/src/interrupt.js"}],"../node_modules/d3-brush/src/event.js":[function(require,module,exports) {
+},{"./selection/index.js":"../node_modules/d3-transition/src/selection/index.js","./transition/index.js":"../node_modules/d3-transition/src/transition/index.js","./active.js":"../node_modules/d3-transition/src/active.js","./interrupt.js":"../node_modules/d3-transition/src/interrupt.js"}],"../node_modules/d3-brush/src/event.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28604,341 +28641,382 @@ function ready(datapoints) {
   var group = preptrator.selectAll('.group').data(nest).enter().append('div').attr('class', 'group').attr('id', function (d) {
     var result = 'group' + d.key;
     return result;
+  }).attr('data-delay', function (d) {
+    return d.key.split('.')[0];
   }); // in each group add the appropriate number of blocks
   // group.append('text').text(d => d.key)
 
+  var legend = group.append('g').attr('transform', 'translate(0,0)');
+  legend.append('text').data(datapoints).text(function (d) {
+    return d.month_number;
+  }).attr('stroke', 'white').attr('font-size', 12);
   var block = group.selectAll('.block').data(function (d) {
     return d.values;
   }).enter().append('svg').attr('class', 'block').style('background-color', 'none').attr('id', function (d) {
     var result = 'block' + d.preptrator;
     return result;
   });
-  block.append('circle').attr('cx', 31).attr('cy', 31).attr('r', 30).attr('stroke', 'steelblue').attr('stroke-width', 1.5).attr('fill', 'grey');
-  d3.select('#block0').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/0.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
-    console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+  block.append('circle').attr('cx', 31).attr('cy', 31).attr('r', 30).attr('stroke', 'none').attr('stroke-width', 4).attr('fill', 'none').attr('id', function (d) {
+    var result = 'circle' + d.preptrator;
+    return result;
   });
-  d3.select('#block1').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/1.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block0').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/0.png')).attr('class', 'image').attr('id', 'image0').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block2').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/2.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block1').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/1.png')).attr('class', 'image').attr('id', 'image1').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block3').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/3.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block2').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/2.png')).attr('class', 'image').attr('id', 'image2').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block4').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/4.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block3').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/3.png')).attr('class', 'image').attr('id', 'image3').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block5').append('image').attr('x', 3).attr('y', 3).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/5.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block4').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/4.png')).attr('class', 'image').attr('id', 'image4').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block6').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/6.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block5').append('image').attr('x', 3).attr('y', 3).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/5.png')).attr('class', 'image').attr('id', 'image5').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block7').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/7.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block6').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/6.png')).attr('id', 'image6').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block8').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/8.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block7').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/7.png')).attr('id', 'image7').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block9').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/9.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block8').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/8.png')).attr('id', 'image8').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block10').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/10.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block9').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/9.png')).attr('id', 'image9').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block11').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/11.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block10').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/10.png')).attr('id', 'image10').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block12').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/12.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block11').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/11.png')).attr('id', 'image11').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block13').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/13.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block12').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/12.png')).attr('id', 'image12').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block14').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/14.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block13').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/13.png')).attr('id', 'image13').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block15').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/15.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block14').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/14.png')).attr('id', 'image14').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block16').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/16.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block15').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/15.png')).attr('id', 'image15').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block17').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/17.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block16').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/16.png')).attr('id', 'image16').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block18').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/18.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block17').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/17.png')).attr('id', 'image17').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block19').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/19.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block18').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/18.png')).attr('id', 'image18').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block20').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/20.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block19').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/19.png')).attr('id', 'image19').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block21').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/21.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block20').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/20.png')).attr('id', 'image20').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block22').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/22.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block21').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/21.png')).attr('id', 'image21').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block23').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/23.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block22').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/22.png')).attr('id', 'image22').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block24').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/24.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block23').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/23.png')).attr('id', 'image23').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block25').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/25.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block24').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/24.png')).attr('id', 'image24').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block26').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/26.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block25').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/25.png')).attr('id', 'image25').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block27').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/27.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block26').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/26.png')).attr('id', 'image26').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block28').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/28.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block27').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/27.png')).attr('id', 'image27').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block29').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/29.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block28').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/28.png')).attr('id', 'image28').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block30').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/30.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block29').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/29.png')).attr('id', 'image29').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block31').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/31.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block30').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/30.png')).attr('id', 'image30').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block32').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/32.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block31').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/31.png')).attr('id', 'image31').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block33').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/33.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block32').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/32.png')).attr('id', 'image32').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block34').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/34.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block33').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/33.png')).attr('id', 'image33').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block35').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/35.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block34').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/34.png')).attr('id', 'image34').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block36').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/36.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block35').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/35.png')).attr('id', 'image35').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block37').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/37.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block36').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/36.png')).attr('id', 'image36').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block38').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/38.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block37').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/37.png')).attr('id', 'image37').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block39').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/39.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block38').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/38.png')).attr('id', 'image38').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block40').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/40.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block39').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/39.png')).attr('id', 'image39').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block41').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/41.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block40').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/40.png')).attr('id', 'image40').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block42').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/42.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block41').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/41.png')).attr('id', 'image41').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block43').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/43.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block42').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/42.png')).attr('id', 'image42').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block44').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/44.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block43').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/43.png')).attr('id', 'image43').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block45').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/45.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block44').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/44.png')).attr('id', 'image44').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block46').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/46.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block45').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/45.png')).attr('id', 'image45').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block47').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/47.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block46').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/46.png')).attr('id', 'image46').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block48').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/48.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block47').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/47.png')).attr('id', 'image47').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block49').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/49.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block48').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/48.png')).attr('id', 'image48').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block50').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/50.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block49').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/49.png')).attr('id', 'image49').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block51').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/51.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block50').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/50.png')).attr('id', 'image50').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block52').append('image').attr('x', 3).attr('y', 3).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/52.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block51').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/51.png')).attr('id', 'image51').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  d3.select('#block53').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/53.png')).attr('class', 'image').style("filter", "url(#desaturate)").on("mouseover", function (d) {
+  d3.select('#block52').append('image').attr('x', 3).attr('y', 3).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/52.png')).attr('id', 'image52').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
     console.log('My mouse went over the datapoint', d);
-    d3.select(this).style("filter", null);
-  }).on("mouseout", function (d) {
-    d3.select(this).style("filter", "url(#desaturate)");
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
   });
-  block.append('filter').attr('id', 'desaturate').append('feColorMatrix').attr('type', 'matrix').attr('values', "0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0");
+  d3.select('#block53').append('image').attr('x', 2.8).attr('y', 2.8).attr('width', 56).attr('height', 56).attr('xlink:href', require('../images/P-images/53.png')).attr('id', 'image53').style('filter', 'url(#desaturate)').on('mouseover', function (d) {
+    console.log('My mouse went over the datapoint', d);
+    d3.select(this).style('filter', null);
+  }).on('mouseout', function (d) {
+    d3.select(this).style('filter', 'url(#desaturate)');
+  }); // * Transition
+  //
+
+  d3.selectAll('image').style('opacity', 0).transition().duration(500).delay(function (d) {
+    var delay = this.parentNode.parentNode.getAttribute('data-delay');
+    return delay * 250;
+  }).style('opacity', 1);
+  console.log('This step');
+  /* 
+  Scrolltelling
+  */
+
+  d3.select('#p1').on('stepin', function () {
+    console.log('This is working.');
+    d3.selectAll('#circle0,#image0').attr('stroke', '#b2182b').style('filter', 'none');
+  });
+  d3.select('#p2').on('stepin', function () {
+    d3.selectAll('#circle6, #image6').attr('stroke', '#de2d26').style('filter', 'none');
+  });
+  d3.select('#p3').on('stepin', function () {
+    // d3.select('#image2').style('filter', 'none')
+    d3.selectAll('#circle17, #image17').attr('stroke', '#de2d26').style('filter', 'none');
+  });
+  d3.select('#p4').on('stepin', function () {
+    // d3.select('#image3').style('filter', 'none')
+    d3.selectAll('#circle35, #image35').attr('stroke', '#de2d26').style('filter', 'none');
+  });
+  d3.select('#p5').on('stepin', function () {
+    d3.selectAll('#circle47, #image47').attr('stroke', '#de2d26').style('filter', 'none');
+  });
+  d3.select('#p6').on('stepin', function () {
+    d3.selectAll('#circle51, #image51').attr('stroke', '#de2d26').style('filter', 'none');
+  });
+  block.append('filter').attr('id', 'desaturate').append('feColorMatrix').attr('type', 'matrix').attr('values', '0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0');
 }
 },{"d3":"../node_modules/d3/index.js","../data/CaseNumber.csv":"data/CaseNumber.csv","../images/P-images/0.png":"images/P-images/0.png","../images/P-images/1.png":"images/P-images/1.png","../images/P-images/2.png":"images/P-images/2.png","../images/P-images/3.png":"images/P-images/3.png","../images/P-images/4.png":"images/P-images/4.png","../images/P-images/5.png":"images/P-images/5.png","../images/P-images/6.png":"images/P-images/6.png","../images/P-images/7.png":"images/P-images/7.png","../images/P-images/8.png":"images/P-images/8.png","../images/P-images/9.png":"images/P-images/9.png","../images/P-images/10.png":"images/P-images/10.png","../images/P-images/11.png":"images/P-images/11.png","../images/P-images/12.png":"images/P-images/12.png","../images/P-images/13.png":"images/P-images/13.png","../images/P-images/14.png":"images/P-images/14.png","../images/P-images/15.png":"images/P-images/15.png","../images/P-images/16.png":"images/P-images/16.png","../images/P-images/17.png":"images/P-images/17.png","../images/P-images/18.png":"images/P-images/18.png","../images/P-images/19.png":"images/P-images/19.png","../images/P-images/20.png":"images/P-images/20.png","../images/P-images/21.png":"images/P-images/21.png","../images/P-images/22.png":"images/P-images/22.png","../images/P-images/23.png":"images/P-images/23.png","../images/P-images/24.png":"images/P-images/24.png","../images/P-images/25.png":"images/P-images/25.png","../images/P-images/26.png":"images/P-images/26.png","../images/P-images/27.png":"images/P-images/27.png","../images/P-images/28.png":"images/P-images/28.png","../images/P-images/29.png":"images/P-images/29.png","../images/P-images/30.png":"images/P-images/30.png","../images/P-images/31.png":"images/P-images/31.png","../images/P-images/32.png":"images/P-images/32.png","../images/P-images/33.png":"images/P-images/33.png","../images/P-images/34.png":"images/P-images/34.png","../images/P-images/35.png":"images/P-images/35.png","../images/P-images/36.png":"images/P-images/36.png","../images/P-images/37.png":"images/P-images/37.png","../images/P-images/38.png":"images/P-images/38.png","../images/P-images/39.png":"images/P-images/39.png","../images/P-images/40.png":"images/P-images/40.png","../images/P-images/41.png":"images/P-images/41.png","../images/P-images/42.png":"images/P-images/42.png","../images/P-images/43.png":"images/P-images/43.png","../images/P-images/44.png":"images/P-images/44.png","../images/P-images/45.png":"images/P-images/45.png","../images/P-images/46.png":"images/P-images/46.png","../images/P-images/47.png":"images/P-images/47.png","../images/P-images/48.png":"images/P-images/48.png","../images/P-images/49.png":"images/P-images/49.png","../images/P-images/50.png":"images/P-images/50.png","../images/P-images/51.png":"images/P-images/51.png","../images/P-images/52.png":"images/P-images/52.png","../images/P-images/53.png":"images/P-images/53.png"}]},{},["scripts/chart-01.js"], null)
 //# sourceMappingURL=/chart-01.08e79ccf.js.map

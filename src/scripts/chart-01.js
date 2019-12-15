@@ -28,6 +28,17 @@ function ready(datapoints) {
 
   // in each group add the appropriate number of blocks
   // group.append('text').text(d => d.key)
+  var legend = group
+    .append('g')
+    .attr('transform', 'translate(0,0)')
+
+
+
+legend.append('text')
+        .data(datapoints)
+        .text(d => d.month_number)
+        .attr('stroke','white')
+        .attr('font-size', 12)
 
 
   const block = group
@@ -41,6 +52,8 @@ function ready(datapoints) {
       const result = 'block' + d.preptrator
       return result
     })
+
+
 
   block
     .append('circle')
@@ -1039,4 +1052,8 @@ Scrolltelling
       'values',
       '0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'
     )
+
+
+  
+
 }

@@ -1,6 +1,6 @@
 body {
     margin:auto;
-    padding:50px 10px;
+    padding:0px 0px;
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -27,7 +27,7 @@ img {
 }
 
 .grey-theme {
-    background-color:rgb(146, 145, 145) ;
+    background-color:rgb(255, 255, 254);
     color: black;
 }
 
@@ -43,10 +43,39 @@ img {
     filter: none;
   }
 
+  #loading-image {
+    position:sticky;
+    display: block;
+    width:100%;
+    /* height:100vh; */
+    margin:auto;
 
-#loading_image{
-    width: 100%;
-    height: 100%;
+    /* background-size:cover;
+    z-index: 1; */
+}
+
+
+.top {
+  width: 100%;
+  height: 100vh;
+  background: url('/title.eb01d6a7.gif') center;
+  background-size: cover;
+}
+
+.top > * {
+  margin-top: 0;
+}
+
+
+.middle{
+  width: 100%;
+  height: 100vh;
+  background: black;
+  background-size: cover;
+}
+
+.middle > * {
+  margin-top: 0;
 }
 
 .header {
@@ -56,7 +85,7 @@ img {
 
 .story-body, .header, .chart-section, .footer {
     margin:auto;
-    max-width: 700px;
+    max-width: 500px;
 }
 
 .footer {
@@ -151,7 +180,6 @@ p.note {
     width:100%;
     max-width:1200px;
     padding:20px 0px;
-    float: center;
 }
 
 .story-body .chart-section {
@@ -160,7 +188,7 @@ p.note {
 
 
 .chart-row {
-    display:flex-start;
+    display:flex;
     justify-content: space-between;
     margin-top:20px;
 }
@@ -213,20 +241,20 @@ p.chart-source {
     display: flex;
     flex-direction: column;
     align-items: flex;
-    width:80%;
+    width:100%;
     height:100%;
   }
   
   .group {
     display: flex;
     flex-direction: row;
-    margin: 6px;
+    margin: 3.5px;
   }
   
   .block {
     width: 62px;
     height: 62px;
-    margin: 6px;
+    margin: 10px;
     background-color: none;
   }
 
@@ -278,5 +306,298 @@ p.caption {
 
 }
 
+/* 
+
+Begin responsive design and scrollytelling
+
+*/
+/* 
+svg {
+    display: block;
+  } */
+  
+  /* Scrollytelling sections can be wider than the normal 700px width */
+.scrollytelling.story-body {
+    max-width: 100%;
+  }
+  
+  .scrollytelling {
+    display:flex;
+    flex-wrap: wrap;
+  }
+  
+  /* Everything inside of scrollytelling gets normal full width... */
+  .scrollytelling > * {
+    flex-basis: 100%;
+    flex-shrink: 0;
+  }
+  
+  /* ...except the .steps and .chart! They'll share a row, sometimes */
+  .scrollytelling > .steps,
+  .scrollytelling > .preptrator {
+    flex-basis: 80%;
+    flex-shrink: 0;
+    flex-grow: 1;
+  }
+  
+  /* The bigger 'flex-grow' the more space it takes up */
+  .scrollytelling > .preptrator {
+    flex-grow: 1;
+    /* overflow: hidden; */
+  }
+  
+  .scrollytelling .preptrator {
+    margin-right: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 0;
+    /* height: 100vh; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  
+  .scrollytelling .preptrator svg {
+    margin: auto;
+  }
+  
+  .scrollytelling .preptrator img {
+    width: 100wh;
+  }
+  
+  .scrollytelling .step {
+    max-width: 60rem;
+    margin: 0 auto;
+    margin-bottom: 100vh;
+    padding: 50px;
+    background-color: black;
+    color:white;
+    pointer-events: auto;
+  }
+  
+  .scrollytelling .step *:first-child {
+    margin-top: 0;
+    padding-top: 0;
+  }
+  
+  .scrollytelling .step *:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  
+  /* This is a weird spacing fix */
+  .scrollytelling .steps {
+    z-index: 10;
+    padding-bottom: 1vh;
+    pointer-events: none;
+  }
+  
+  /* This is the point where it collapses */
+  @media (max-width:900px) {
+    .scrollytelling > * {
+        flex-basis: 100% !important;
+    }
+    .scrollytelling .preptrator {
+        margin-right: 0;
+    }
+  }
+  
+  /* 
+  
+  End scrollytelling 
+  
+  */
+
+/*mapbox */
+
+#map { 
+  /* position: absolute; 
+  top: 0; 
+  bottom: 0;  */
+  height: 100vh;
+  width: 100%;
+  /* max-width: 640px; */
+  margin:auto;
+};
+
+.mapboxgl-popup {
+  max-width: 400px;
+  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;}
+
+
+.mapboxgl-map {
+  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  position: absolute;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  text-align: left;
+  }
+
+/* .detector {
+  display: flex;
+  flex-wrap: wrap;
+  width: 60px;
+    } */
+
+/* .group {
+  width: 10px;
+  height: 40px;
+  margin: 2px;
+    } */
+
+  /*
+
+  Start timeline
+
+  */
+  .intro {
+    background: white;
+    padding: 100px 0;
+  }
+
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .timeline ul {
+    background: black;
+    padding: 50px 0;
+  }
+  
+  .timeline ul li {
+    list-style-type: none;
+    position: relative;
+    width: 3px;
+    margin: 0 auto;
+    padding-top: 50px;
+    background: grey;
+  }
+  
+  .timeline ul li::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: inherit;
+  }
+  
+  .timeline ul li div {
+    position: relative;
+    bottom: 0;
+    width: 400px;
+    padding: 15px;
+    background:black;
+  }
+  
+  .timeline ul li div::before {
+    content: '';
+    position: absolute;
+    bottom: 7px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+  }
+  
+  .timeline ul li:nth-child(odd) div {
+    left: 45px;
+  }
+  
+  .timeline ul li:nth-child(odd) div::before {
+    left: -15px;
+    border-width: 8px 16px 8px 0;
+    border-color: transparent white transparent transparent;
+  }
+  
+  .timeline ul li:nth-child(even) div {
+    left: -439px;
+  }
+  
+  .timeline ul li:nth-child(even) div::before {
+    right: -15px;
+    border-width: 8px 0 8px 16px;
+    border-color: transparent transparent transparent white;
+  }
+  
+  time {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  
+  /* EFFECTS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+  
+  .timeline ul li::after {
+    transition: background .5s ease-in-out;
+  }
+  
+  .timeline ul li.in-view::after {
+    background: white;
+  }
+  
+  .timeline ul li div {
+    visibility: hidden;
+    opacity: 0;
+    transition: all .5s ease-in-out;
+  }
+  
+  .timeline ul li:nth-child(odd) div {
+    transform: translate3d(200px, 0, 0);
+  }
+  
+  .timeline ul li:nth-child(even) div {
+    transform: translate3d(-200px, 0, 0);
+  }
+  
+  .timeline ul li.in-view div {
+    transform: none;
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  
+  /* GENERAL MEDIA QUERIES
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+  
+  @media screen and (max-width: 900px) {
+    .timeline ul li div {
+      width: 250px;
+    }
+    .timeline ul li:nth-child(even) div {
+      left: -289px;
+      /*250+45-6*/
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .timeline ul li {
+      margin-left: 20px;
+    }
+    .timeline ul li div {
+      width: calc(100vw - 91px);
+    }
+    .timeline ul li:nth-child(even) div {
+      left: 45px;
+    }
+    .timeline ul li:nth-child(even) div::before {
+      left: -15px;
+      border-width: 8px 16px 8px 0;
+      border-color: transparent white transparent transparent;
+    }
+  }
+  /*
+
+  End timeline
+
+  */
 
 /*# sourceMappingURL=/style.251b6741.css.map */
