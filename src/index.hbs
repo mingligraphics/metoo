@@ -16,6 +16,7 @@ analytics": ""
   This line means, use default.hbs layout from src/html/layouts/
 -->
 
+
 {{!< default}}
 
 <!-- 
@@ -25,11 +26,19 @@ analytics": ""
 
 {{> story/basic }}
 
+{{!-- <div class='middle'>
+{{> story/illustrator_demo }}
+</div> --}}
+
+{{> story/illustrator_demo_2 }}
+
 <!-- 
   Charts are exactly the same.
 -->
 
 {{> story/chart-01 }}
+
+
 
 <!-- 
   If you want to use something exported from ai2html...
@@ -46,11 +55,16 @@ analytics": ""
   although it's a little less organized looking
 -->
 
-{{> story/chart-02 }}
+{{!-- {{> story/mapbox }} --}}
+
 
 {{> story/chart-03 }}
 
+
+
 {{> story/chart-04 }}
+
+
 
 <!-- A few extra styles to make things responsive even in Bootstrap -->
 

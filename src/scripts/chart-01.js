@@ -29,6 +29,7 @@ function ready(datapoints) {
   // in each group add the appropriate number of blocks
   // group.append('text').text(d => d.key)
 
+
   const block = group
     .selectAll('.block')
     .data(d => d.values)
@@ -46,9 +47,13 @@ function ready(datapoints) {
     .attr('cx', 31)
     .attr('cy', 31)
     .attr('r', 30)
-    .attr('stroke', 'steelblue')
-    .attr('stroke-width', 1.5)
-    .attr('fill', 'grey')
+    .attr('stroke', 'none')
+    .attr('stroke-width', 4)
+    .attr('fill', 'none')
+    .attr('id', function(d) {
+      const result = 'circle' + d.preptrator
+      return result
+    })
 
   d3.select('#block0')
     .append('image')
@@ -67,6 +72,8 @@ function ready(datapoints) {
     .on('mouseout', function(d) {
       d3.select(this).style('filter', 'url(#desaturate)')
     })
+    
+
 
   d3.select('#block1')
     .append('image')
@@ -998,24 +1005,29 @@ Scrolltelling
 
   d3.select('#p1').on('stepin', function() {
     console.log('This is working.')
-    d3.select('#image0').style('filter', 'none')
+    d3.selectAll('#circle0,#image0').attr('stroke', '#b2182b').style('filter', 'none')
   })
 
   d3.select('#p2').on('stepin', function() {
-    console.log('This is working.')
-    d3.select('#image1').style('filter', 'none')
+    d3.selectAll('#circle6, #image6').attr('stroke', '#de2d26').style('filter', 'none')
   })
 
   d3.select('#p3').on('stepin', function() {
-    d3.select('#image2').style('filter', 'none')
+    // d3.select('#image2').style('filter', 'none')
+    d3.selectAll('#circle17, #image17').attr('stroke', '#de2d26').style('filter', 'none')
   })
 
   d3.select('#p4').on('stepin', function() {
-    d3.select('#image3').style('filter', 'none')
+    // d3.select('#image3').style('filter', 'none')
+    d3.selectAll('#circle35, #image35').attr('stroke', '#de2d26').style('filter', 'none')
   })
 
   d3.select('#p5').on('stepin', function() {
-    d3.select('#image4').style('filter', 'none')
+    d3.selectAll('#circle47, #image47').attr('stroke', '#de2d26').style('filter', 'none')
+  })
+
+  d3.select('#p6').on('stepin', function() {
+    d3.selectAll('#circle51, #image51').attr('stroke', '#de2d26').style('filter', 'none')
   })
 
   block

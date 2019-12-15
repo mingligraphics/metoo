@@ -1,6 +1,6 @@
 body {
     margin:auto;
-    padding:50px 10px;
+    padding:0px 0px;
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -43,10 +43,39 @@ img {
     filter: none;
   }
 
+  #loading-image {
+    position:sticky;
+    display: block;
+    width:100%;
+    /* height:100vh; */
+    margin:auto;
 
-#loading_image{
-    width: 100%;
-    height: 100%;
+    /* background-size:cover;
+    z-index: 1; */
+}
+
+
+.top {
+  width: 100%;
+  height: 100vh;
+  background: url('/images/title.gif') center;
+  background-size: cover;
+}
+
+.top > * {
+  margin-top: 0;
+}
+
+
+.middle{
+  width: 100%;
+  height: 100vh;
+  background: black;
+  background-size: cover;
+}
+
+.middle > * {
+  margin-top: 0;
 }
 
 .header {
@@ -56,7 +85,7 @@ img {
 
 .story-body, .header, .chart-section, .footer {
     margin:auto;
-    max-width: 700px;
+    max-width: 500px;
 }
 
 .footer {
@@ -225,7 +254,7 @@ p.chart-source {
   .block {
     width: 62px;
     height: 62px;
-    margin: 5px;
+    margin: 10px;
     background-color: none;
   }
 
@@ -289,11 +318,11 @@ svg {
   
   /* Scrollytelling sections can be wider than the normal 700px width */
 .scrollytelling.story-body {
-    max-width: 60%;
+    max-width: 100%;
   }
   
   .scrollytelling {
-    display: flex;
+    display:flex;
     flex-wrap: wrap;
   }
   
@@ -306,19 +335,19 @@ svg {
   /* ...except the .steps and .chart! They'll share a row, sometimes */
   .scrollytelling > .steps,
   .scrollytelling > .preptrator {
-    flex-basis: 100%;
+    flex-basis: 80%;
     flex-shrink: 0;
     flex-grow: 1;
   }
   
   /* The bigger 'flex-grow' the more space it takes up */
   .scrollytelling > .preptrator {
-    flex-grow: 10;
+    flex-grow: 1;
     /* overflow: hidden; */
   }
   
   .scrollytelling .preptrator {
-    margin-right: 5px;
+    margin-right: 10px;
     position: sticky;
     top: 0;
     z-index: 0;
@@ -337,12 +366,12 @@ svg {
   }
   
   .scrollytelling .step {
-    max-width: 30rem;
+    max-width: 60rem;
     margin: 0 auto;
-    margin-bottom: 80vh;
-    padding: 30px;
-    background-color:black;
-    color:lightgray;
+    margin-bottom: 100vh;
+    padding: 50px;
+    background-color: black;
+    color:white;
     pointer-events: auto;
   }
   
@@ -379,6 +408,42 @@ svg {
   
   */
 
+/*mapbox */
+
+#map { 
+  /* position: absolute; 
+  top: 0; 
+  bottom: 0;  */
+  height: 100vh;
+  width: 100%;
+  /* max-width: 640px; */
+  margin:auto;
+};
+
+.mapboxgl-popup {
+  max-width: 400px;
+  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;}
+
+
+.mapboxgl-map {
+  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  position: absolute;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  text-align: left;
+  }
+
+/* .detector {
+  display: flex;
+  flex-wrap: wrap;
+  width: 60px;
+    } */
+
+/* .group {
+  width: 10px;
+  height: 40px;
+  margin: 2px;
+    } */
 
   /*
 
@@ -398,7 +463,7 @@ svg {
   }
 
   .timeline ul {
-    background: lightgrey;
+    background: black;
     padding: 50px 0;
   }
   
@@ -428,7 +493,7 @@ svg {
     bottom: 0;
     width: 400px;
     padding: 15px;
-    background: white;
+    background:black;
   }
   
   .timeline ul li div::before {
