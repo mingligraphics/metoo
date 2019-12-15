@@ -28646,6 +28646,10 @@ function ready(datapoints) {
   }); // in each group add the appropriate number of blocks
   // group.append('text').text(d => d.key)
 
+  var legend = group.append('g').attr('transform', 'translate(0,0)');
+  legend.append('text').data(datapoints).text(function (d) {
+    return d.month_number;
+  }).attr('stroke', 'white').attr('font-size', 12);
   var block = group.selectAll('.block').data(function (d) {
     return d.values;
   }).enter().append('svg').attr('class', 'block').style('background-color', 'none').attr('id', function (d) {
