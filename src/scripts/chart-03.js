@@ -35,6 +35,7 @@ const data = [
   { col: 0, row: 12 },
   { col: 0, row: 13 },
   { col: 0, row: 14 },
+  { col: 0, row: 15 },
   { col: 1, row: 0 },
   { col: 1, row: 1 },
   { col: 1, row: 2 },
@@ -50,6 +51,7 @@ const data = [
   { col: 1, row: 12 },
   { col: 1, row: 13 },
   { col: 1, row: 14 },
+  { col: 1, row: 15 },
   { col: 2, row: 0 },
   { col: 2, row: 1 },
   { col: 2, row: 2 },
@@ -64,6 +66,7 @@ const data = [
   { col: 2, row: 11 },
   { col: 2, row: 12 },
   { col: 2, row: 13 },
+  { col: 2, row: 14 },
   { col: 3, row: 0 },
   { col: 3, row: 1 },
   { col: 3, row: 2 },
@@ -78,6 +81,7 @@ const data = [
   { col: 3, row: 11 },
   { col: 3, row: 12 },
   { col: 3, row: 13 },
+  { col: 3, row: 14 },
   { col: 4, row: 0 },
   { col: 4, row: 1 },
   { col: 4, row: 2 },
@@ -92,6 +96,7 @@ const data = [
   { col: 4, row: 11 },
   { col: 4, row: 12 },
   { col: 4, row: 13 },
+  { col: 4, row: 14 },
   { col: 5, row: 0 },
   { col: 5, row: 1 },
   { col: 5, row: 2 },
@@ -106,6 +111,7 @@ const data = [
   { col: 5, row: 11 },
   { col: 5, row: 12 },
   { col: 5, row: 13 },
+  { col: 5, row: 14 },
   { col: 6, row: 0 },
   { col: 6, row: 1 },
   { col: 6, row: 2 },
@@ -120,6 +126,7 @@ const data = [
   { col: 6, row: 11 },
   { col: 6, row: 12 },
   { col: 6, row: 13 },
+  { col: 6, row: 14 },
   { col: 7, row: 0 },
   { col: 7, row: 1 },
   { col: 7, row: 2 },
@@ -134,6 +141,7 @@ const data = [
   { col: 7, row: 11 },
   { col: 7, row: 12 },
   { col: 7, row: 13 },
+  { col: 7, row: 14 },
   { col: 8, row: 0 },
   { col: 8, row: 1 },
   { col: 8, row: 2 },
@@ -148,6 +156,7 @@ const data = [
   { col: 8, row: 11 },
   { col: 8, row: 12 },
   { col: 8, row: 13 },
+  { col: 8, row: 14 },
   { col: 9, row: 0 },
   { col: 9, row: 1 },
   { col: 9, row: 2 },
@@ -161,8 +170,12 @@ const data = [
   { col: 9, row: 10 },
   { col: 9, row: 11 },
   { col: 9, row: 12 },
-  { col: 9, row: 13 }
+  { col: 9, row: 13 },
+  { col: 9, row: 14 }
+
 ]
+
+// console.log(len(data))
 
 const xScale = d3
   .scaleLinear()
@@ -202,14 +215,14 @@ d3.select('#victim04').on('stepin', function() {
 })
 
 d3.select('#victim05').on('stepin', function() {
-  svg.selectAll("rect[id='133'], rect[id='134'], rect[id='135'], rect[id='136'], rect[id='137'], rect[id='138'], rect[id='139'], rect[id='140'], rect[id='141'], rect[id='142'], rect[id='143'], rect[id='144'], rect[id='145'], rect[id='146'], rect[id='147'], rect[id='148']").attr('fill', '#4F5E50')
-  svg.select("rect[id='145']").attr('fill', '#d77fa1')
+  svg.selectAll("rect[id='133'], rect[id='134'], rect[id='135'], rect[id='136'], rect[id='137'], rect[id='138'], rect[id='139'], rect[id='140'], rect[id='141'], rect[id='142'], rect[id='143'], rect[id='144'], rect[id='145'], rect[id='146'], rect[id='147'], rect[id='148']").attr('fill', '#427045')
+  svg.select("rect[id='145']").attr('fill', '#DBA0AF')
 
 })
 
 d3.select('#victim06').on('stepin', function() {
-  svg.selectAll("rect[id='149'], rect[id='150'], rect[id='151'], rect[id='152']").attr('fill', '#537ec5')
-  svg.select("rect[id='151']").attr('fill', '#d77fa1')
+  svg.selectAll("rect[id='149'], rect[id='150'], rect[id='151']").attr('fill', '#254341')
+  svg.select("rect[id='150']").attr('fill', '#DBA0AF')
 })
 
 svg

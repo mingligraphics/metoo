@@ -28574,6 +28574,9 @@ var data = [{
   col: 0,
   row: 14
 }, {
+  col: 0,
+  row: 15
+}, {
   col: 1,
   row: 0
 }, {
@@ -28619,6 +28622,9 @@ var data = [{
   col: 1,
   row: 14
 }, {
+  col: 1,
+  row: 15
+}, {
   col: 2,
   row: 0
 }, {
@@ -28661,6 +28667,9 @@ var data = [{
   col: 2,
   row: 13
 }, {
+  col: 2,
+  row: 14
+}, {
   col: 3,
   row: 0
 }, {
@@ -28703,6 +28712,9 @@ var data = [{
   col: 3,
   row: 13
 }, {
+  col: 3,
+  row: 14
+}, {
   col: 4,
   row: 0
 }, {
@@ -28745,6 +28757,9 @@ var data = [{
   col: 4,
   row: 13
 }, {
+  col: 4,
+  row: 14
+}, {
   col: 5,
   row: 0
 }, {
@@ -28787,6 +28802,9 @@ var data = [{
   col: 5,
   row: 13
 }, {
+  col: 5,
+  row: 14
+}, {
   col: 6,
   row: 0
 }, {
@@ -28829,6 +28847,9 @@ var data = [{
   col: 6,
   row: 13
 }, {
+  col: 6,
+  row: 14
+}, {
   col: 7,
   row: 0
 }, {
@@ -28871,6 +28892,9 @@ var data = [{
   col: 7,
   row: 13
 }, {
+  col: 7,
+  row: 14
+}, {
   col: 8,
   row: 0
 }, {
@@ -28913,6 +28937,9 @@ var data = [{
   col: 8,
   row: 13
 }, {
+  col: 8,
+  row: 14
+}, {
   col: 9,
   row: 0
 }, {
@@ -28954,7 +28981,11 @@ var data = [{
 }, {
   col: 9,
   row: 13
-}];
+}, {
+  col: 9,
+  row: 14
+}]; // console.log(len(data))
+
 var xScale = d3.scaleLinear().domain([0, 9]).range([0, width]);
 var yScale = d3.scaleLinear().domain([0, 14]).range([0, height]); // this is the parameter part useful for exploration
 // you can play with these numbers
@@ -28978,12 +29009,12 @@ d3.select('#victim04').on('stepin', function () {
   svg.select("rect[id='120']").attr('fill', '#DBA0AF');
 });
 d3.select('#victim05').on('stepin', function () {
-  svg.selectAll("rect[id='133'], rect[id='134'], rect[id='135'], rect[id='136'], rect[id='137'], rect[id='138'], rect[id='139'], rect[id='140'], rect[id='141'], rect[id='142'], rect[id='143'], rect[id='144'], rect[id='145'], rect[id='146'], rect[id='147'], rect[id='148']").attr('fill', '#4F5E50');
-  svg.select("rect[id='145']").attr('fill', '#d77fa1');
+  svg.selectAll("rect[id='133'], rect[id='134'], rect[id='135'], rect[id='136'], rect[id='137'], rect[id='138'], rect[id='139'], rect[id='140'], rect[id='141'], rect[id='142'], rect[id='143'], rect[id='144'], rect[id='145'], rect[id='146'], rect[id='147'], rect[id='148']").attr('fill', '#427045');
+  svg.select("rect[id='145']").attr('fill', '#DBA0AF');
 });
 d3.select('#victim06').on('stepin', function () {
-  svg.selectAll("rect[id='149'], rect[id='150'], rect[id='151'], rect[id='152']").attr('fill', '#537ec5');
-  svg.select("rect[id='151']").attr('fill', '#d77fa1');
+  svg.selectAll("rect[id='149'], rect[id='150'], rect[id='151']").attr('fill', '#254341');
+  svg.select("rect[id='150']").attr('fill', '#DBA0AF');
 });
 svg.selectAll('rect').data(data).enter().append('rect').attr('width', 20).attr('height', 20).attr('x', function (d) {
   return xScale(d.col);
