@@ -137,7 +137,7 @@ p.kicker {
 h1.headline {
     font-size: 8rem;
     line-height: 1.8;
-    margin-bottom: 0;
+    margin-bottom: 0px;
     margin-top: 50;
     font-weight: 800;
     /* font-family: 'Acme', serif; */
@@ -160,7 +160,7 @@ h1.headline {
 
 .text-position {
   position: absolute;
-  bottom: 30px;
+  bottom: 50px;
 }
 
 h2.subhead {
