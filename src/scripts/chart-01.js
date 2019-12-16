@@ -43,6 +43,7 @@ legend.append('text')
         .attr('text-anchor', 'start')
         .attr('alignment-baseline', 'central')
         .style('fill', '#e3c878')
+        .style('font-family', 'Merriweather, serif')
 
 
   const block = group

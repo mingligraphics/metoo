@@ -28992,33 +28992,33 @@ var yScale = d3.scaleLinear().domain([0, 14]).range([0, height]); // this is the
 
 console.log(data);
 d3.select('#victim01').on('stepin', function () {
-  svg.append('text').text('Beijing').attr('font-size', '15px').attr('x', 0).attr('y', -10).attr('fill', '#ebcbae').attr('font-weight', '700');
+  svg.append('text').text('Beijing').attr('font-size', '15px').attr('x', 0).attr('y', -10).attr('fill', 'white').attr('font-weight', '700');
   console.log('several');
   svg.selectAll("rect[id='0'], rect[id='1'], rect[id='2'], rect[id='3'], rect[id='4'], rect[id='5'], rect[id='6'], rect[id='7'], rect[id='8'], rect[id='9'], rect[id='10'], rect[id='11'], rect[id='12'], rect[id='13'], rect[id='14'], rect[id='15'], rect[id='16'], rect[id='17'], rect[id='18'], rect[id='19'], rect[id='20'], rect[id='21'], rect[id='22'], rect[id='23'], rect[id='24'], rect[id='25'], rect[id='26'], rect[id='27'], rect[id='28'], rect[id='29'], rect[id='30'], rect[id='31'], rect[id='32'], rect[id='33'], rect[id='34'], rect[id='35'], rect[id='36'], rect[id='37'], rect[id='38'], rect[id='39'], rect[id='40'], rect[id='41'], rect[id='42'], rect[id='43'], rect[id='44'], rect[id='45'], rect[id='46'], rect[id='47'], rect[id='48'], rect[id='49'], rect[id='50'], rect[id='51'], rect[id='52'], rect[id='53'], rect[id='54'], rect[id='55'], rect[id='56'], rect[id='57'], rect[id='58'], rect[id='59'], rect[id='60'], rect[id='61'], rect[id='62'], rect[id='63'], rect[id='64'], rect[id='65'], rect[id='66'], rect[id='67']").attr('fill', '#ff9a3c').attr('opacity', '0.9');
   svg.select("rect[id='0']").attr('fill', '#ff9a3c').attr('opacity', '0.9');
 });
 d3.select('#victim02').on('stepin', function () {
-  svg.append('text').text('Guangzhou').attr('font-size', '15px').attr('x', 347).attr('y', 243).attr('fill', '#ebcbae').attr('font-weight', '700');
+  svg.append('text').text('Guangzhou').attr('font-size', '15px').attr('x', 347).attr('y', 243).attr('fill', 'white').attr('font-weight', '700');
   svg.selectAll("rect[id='68'], rect[id='69'], rect[id='70'], rect[id='71'], rect[id='72'], rect[id='73'], rect[id='74'], rect[id='75'], rect[id='76'], rect[id='77'], rect[id='78'], rect[id='79'], rect[id='80'], rect[id='81'], rect[id='82'], rect[id='83'], rect[id='84'], rect[id='85'], rect[id='86'], rect[id='87'], rect[id='88'], rect[id='89'], rect[id='90'], rect[id='91']").attr('fill', '#fe9929').attr('fill', '#ff9a3c').attr('opacity', '0.7');
   svg.select("rect[id='72']").attr('fill', '#ff9a3c').attr('opacity', '0.7');
 });
 d3.select('#victim03').on('stepin', function () {
-  svg.append('text').text('Shanghai').attr('font-size', '15px').attr('x', 87).attr('y', 367).attr('fill', '#ebcbae').attr('font-weight', '700');
+  svg.append('text').text('Shanghai').attr('font-size', '15px').attr('x', 87).attr('y', 367).attr('fill', 'white').attr('font-weight', '700');
   svg.selectAll("rect[id='92'], rect[id='93'], rect[id='94'], rect[id='95'], rect[id='96'], rect[id='97'], rect[id='98'], rect[id='99'], rect[id='100'], rect[id='101'], rect[id='102'], rect[id='103'], rect[id='104'], rect[id='105'], rect[id='106'], rect[id='107'], rect[id='108'], rect[id='109']").attr('fill', '#fe9929').attr('fill', '#ff9a3c').attr('opacity', '0.5');
   svg.select("rect[id='105']").attr('fill', '#ff9a3c').attr('opacity', '0.5');
 });
 d3.select('#victim04').on('stepin', function () {
-  svg.append('text').text('Provincial Capitals').attr('font-size', '15px').attr('x', 0).attr('y', 450).attr('fill', '#ebcbae').attr('font-weight', '700');
+  svg.append('text').text('Provincial Capitals').attr('font-size', '15px').attr('x', 0).attr('y', 450).attr('fill', 'white').attr('font-weight', '700');
   svg.selectAll("rect[id='110'], rect[id='111'], rect[id='112'], rect[id='113'], rect[id='114'], rect[id='115'], rect[id='116'], rect[id='117'], rect[id='118'],rect[id='119'], rect[id='120'], rect[id='121'], rect[id='122'], rect[id='123'], rect[id='124'], rect[id='125'], rect[id='126'], rect[id='127'], rect[id='128'], rect[id='129'], rect[id='130'], rect[id='131'], rect[id='132']").attr('fill', '#fbe1b6').attr('opacity', '0.7');
   svg.select("rect[id='120']").attr('fill', '#fbe1b6').attr('opacity', '0.7');
 });
 d3.select('#victim05').on('stepin', function () {
-  svg.append('text').text('Non-Provincial Big Cities').attr('font-size', '15px').attr('x', 133).attr('y', 533).attr('fill', '#ebcbae').attr('font-weight', '700');
+  svg.append('text').text('Non-Provincial Big Cities').attr('font-size', '15px').attr('x', 133).attr('y', 533).attr('fill', 'white').attr('font-weight', '700');
   svg.selectAll("rect[id='133'], rect[id='134'], rect[id='135'], rect[id='136'], rect[id='137'], rect[id='138'], rect[id='139'], rect[id='140'], rect[id='141'], rect[id='142'], rect[id='143'], rect[id='144'], rect[id='145'], rect[id='146'], rect[id='147'], rect[id='148']").attr('fill', '#fee391');
   svg.select("rect[id='145']").attr('fill', '#fee391');
 });
 d3.select('#victim06').on('stepin', function () {
-  svg.append('text').text('Others').attr('font-size', '15px').attr('x', 374).attr('y', 573).attr('fill', '#ebcbae').attr('font-weight', '700');
+  svg.append('text').text('Others').attr('font-size', '15px').attr('x', 374).attr('y', 573).attr('fill', 'white').attr('font-weight', '700');
   svg.selectAll("rect[id='149'], rect[id='150'], rect[id='151']").attr('fill', '#fff7bc');
   svg.select("rect[id='150']").attr('fill', '#fff7bc');
 });

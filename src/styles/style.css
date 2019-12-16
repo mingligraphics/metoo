@@ -143,12 +143,12 @@ h1.headline {
     /* font-family: 'Acme', serif; */
     /* font-family: 'Playfair Display', serif; */
     /* font-family: 'Abril Fatface', serif; */
-    font-family: 'Permanent Marker', cursive;
+    /* font-family: 'Permanent Marker', cursive; */
     margin-left: auto;
     margin-right: auto;
     height: 40%;
     width: 100%;
-    background-color:rgba(0, 0, 0, 0.8);
+    /* background-color:rgba(0, 0, 0, 0.8); */
     text-align:center; 
     color: white;
   }
@@ -170,15 +170,15 @@ h2.subhead {
     margin-top: 0;
     font-weight: 700;
     font-family: 'Poppins', sans-serif;
-    background-color: #F6DA63;
-    color:black;
+    /* background-color: #F6DA63; */
+    color:white;
     height: 50px;
     text-align:center; 
     padding-top: 20px
   }
 
 p.body-text {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 2;
     margin-top:50px;
     margin-bottom:15px;
@@ -200,7 +200,8 @@ h3.section-head {
     font-weight: 500;
     text-align: center;
     color: white;
-    font-family: 'Roboto Mono', monospace;
+    max-width: 500px;
+    /* font-family: 'Roboto Mono', monospace; */
   }
 
 .date {

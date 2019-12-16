@@ -28649,7 +28649,7 @@ function ready(datapoints) {
   var legend = group.append('g').attr('transform', 'translate(200,200)');
   legend.append('text').data(datapoints).text(function (d) {
     return d.month_number;
-  }).attr('stroke', 'white').attr('font-size', 14).attr('font-weight', 500).attr('text-anchor', 'start').attr('alignment-baseline', 'central').style('fill', '#e3c878');
+  }).attr('stroke', 'white').attr('font-size', 14).attr('font-weight', 500).attr('text-anchor', 'start').attr('alignment-baseline', 'central').style('fill', '#e3c878').style('font-family', 'Merriweather, serif');
   var block = group.selectAll('.block').data(function (d) {
     return d.values;
   }).enter().append('svg').attr('class', 'block').style('background-color', 'none').attr('id', function (d) {
