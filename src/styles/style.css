@@ -201,6 +201,7 @@ h3.section-head {
     text-align: center;
     color: white;
     max-width: 500px;
+    background-color:rgba(0, 0, 0, 0.8);
     /* font-family: 'Roboto Mono', monospace; */
   }
 
@@ -213,7 +214,7 @@ h3.section-head {
     letter-spacing:0.5px;
     text-align: center;
     color: white;
-    background-color:rgba(0, 0, 0, 0.8);
+    
     /* font-family: 'Roboto Mono', monospace; */
 
 }
