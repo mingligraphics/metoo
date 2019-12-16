@@ -1,8 +1,9 @@
 body {
     margin:auto;
     padding:0px 0px;
-    font-family: 'Open Sans', sans-serif;
-}
+  }
+
+
 
 img {
     max-width: 100%;
@@ -10,10 +11,19 @@ img {
 
 .serif {
     font-family: 'Lora', serif;
+    font-family: 'Playfair Display', serif;
+
 }
 
 .sans-serif {
     font-family: 'Open Sans', sans-serif;
+    font-family: 'Playfair Display', serif;
+
+}
+
+.cursive {
+    font-family: 'Abril Fatface', cursive;
+    font-family: 'Permanent Marker', cursive;
 }
 
 /* choose a light or dark theme to add to the body tag. */
@@ -57,9 +67,10 @@ img {
 
 .top {
   width: 100%;
-  height: 100vh;
+  height: 110vh;
   background: url('/title.eb01d6a7.gif') center;
   background-size: cover;
+  z-index: -1
 }
 
 .top > * {
@@ -124,26 +135,54 @@ p.kicker {
 }
 
 h1.headline {
-    font-size: 4rem;
-    line-height: 1.1;
-    margin-bottom: 0.25rem;
-    margin-top: 1rem;
+    font-size: 8rem;
+    line-height: 1.8;
+    margin-bottom: 0;
+    margin-top: 50;
     font-weight: 800;
+    /* font-family: 'Acme', serif; */
+    /* font-family: 'Playfair Display', serif; */
+    /* font-family: 'Abril Fatface', serif; */
+    font-family: 'Permanent Marker', cursive;
+    margin-left: auto;
+    margin-right: auto;
+    height: 40%;
+    width: 100%;
+    background-color:rgba(0, 0, 0, 0.8);
+    text-align:center; 
+    color: white;
+  }
+
+.position {
+  position: absolute;
+  bottom: 0;
+}
+
+.text-position {
+  position: absolute;
+  bottom: 30px;
 }
 
 h2.subhead {
-    font-size: 1.4rem;
+    font-size: 2rem;
     line-height: 2rem;
     margin-bottom:0;
-    margin-top: 15px;
-    font-weight: 400;
-}
+    margin-top: 0;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    background-color: #F6DA63;
+    color:black;
+    height: 50px;
+    text-align:center; 
+    padding-top: 20px
+  }
 
 p.body-text {
-    font-size: 1.1rem;
-    line-height: 1.4;
-    margin-top:0;
+    font-size: 18px;
+    line-height: 2;
+    margin-top:50px;
     margin-bottom:15px;
+    font-family: 'Merriweather', serif;
 }
 
 h3.section-head {
@@ -154,24 +193,39 @@ h3.section-head {
 }
 
 .byline {
-    font-size: 1.1rem;
-    line-height: 0.75;
+    font-size: 1.2rem;
+    line-height: 1.5;
     margin-top: 1.5rem;
+    margin-bottom: 2.5rem;
     font-weight: 500;
-}
+    text-align: center;
+    color: white;
+    font-family: 'Roboto Mono', monospace;
+  }
 
 .date {
     font-size: 0.85rem;
-    line-height: 1;
+    line-height: 1.5;
     margin-top: 10px;
     font-weight:400;
     text-transform:uppercase;
     letter-spacing:0.5px;
+    text-align: center;
+    color: white;
+    font-family: 'Roboto Mono', monospace;
+
 }
 
 
 p.note {
-    font-size:0.85rem;
+    margin-top: 50px;
+    font-size:1rem;
+    font-family: 'Roboto Mono', monospace;
+    font: weight 300;
+    background-color: rgb(167, 165, 165, 0.4);
+    color: rgb(211, 210, 210);
+    width:100%;
+    padding: 20px 20px
 }
 
 /* chart styles */
@@ -277,9 +331,10 @@ p.chart-source {
     width:100%;	
 }
 
-p.caption {
+.step .caption {
     font-size:0.9rem;
     margin:0;
+    font-style: italic
 }
 
 
@@ -335,7 +390,7 @@ svg {
   /* ...except the .steps and .chart! They'll share a row, sometimes */
   .scrollytelling > .steps,
   .scrollytelling > .preptrator {
-    flex-basis: 80%;
+    flex-basis: 100%;
     flex-shrink: 0;
     flex-grow: 1;
   }
@@ -366,15 +421,41 @@ svg {
   }
   
   .scrollytelling .step {
-    max-width: 60rem;
+    max-width: 200%;
     margin: 0 auto;
     margin-bottom: 100vh;
     padding: 50px;
     background-color: black;
     color:white;
     pointer-events: auto;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height:1.5
   }
   
+  .scrollytelling .step .second{
+    max-width: 200%;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: black;
+    color:white;
+    pointer-events: auto;
+    font-family: 'Gelasio', serif;
+    font-size: 20px;
+  }
+
+  .scrollytelling .step .third{
+    max-width: 200%;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: black;
+    color:white;
+    pointer-events: auto;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 200
+  }
+
   .scrollytelling .step *:first-child {
     margin-top: 0;
     padding-top: 0;
@@ -473,7 +554,7 @@ svg {
     width: 3px;
     margin: 0 auto;
     padding-top: 50px;
-    background:yellow;
+    background:#F6DA63;
   }
   
   .timeline ul li::after {
@@ -530,6 +611,17 @@ svg {
     font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 8px;
+    font-family: 'Poppins', sans-serif;
+
+  }
+
+  .time-text {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 8px;
+    font-family: 'PT Serif', serif;
+    line-height: 1.8
+
   }
   
   
