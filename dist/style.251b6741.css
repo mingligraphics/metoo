@@ -214,6 +214,7 @@ h3.section-head {
     letter-spacing:0.5px;
     text-align: center;
     color: white;
+    background-color:rgba(0, 0, 0, 0.8);
     
     /* font-family: 'Roboto Mono', monospace; */
 
