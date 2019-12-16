@@ -135,7 +135,7 @@ p.kicker {
 }
 
 h1.headline {
-    font-size: 8rem;
+    font-size: 7rem;
     line-height: 1.8;
     margin-bottom: 0px;
     margin-top: 50;
@@ -148,7 +148,7 @@ h1.headline {
     margin-right: auto;
     height: 40%;
     width: 100%;
-    /* background-color:rgba(0, 0, 0, 0.8); */
+    background-color:rgba(0, 0, 0, 0.8);
     text-align:center; 
     color: white;
   }
@@ -213,7 +213,7 @@ h3.section-head {
     letter-spacing:0.5px;
     text-align: center;
     color: white;
-    font-family: 'Roboto Mono', monospace;
+    /* font-family: 'Roboto Mono', monospace; */
 
 }
 
